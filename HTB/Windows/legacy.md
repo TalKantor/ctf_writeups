@@ -55,7 +55,7 @@ OS and Service detection performed. Please report any incorrect results at https
 
 ![smb_scan](smb_scan.png)
 
-**Initial Shell Vulnerability Exploited: EternalBlue**
+**Initial Shell Vulnerability Exploited: EternalBlue**\
 With the results of the nmap vulnerabilities scan, it seems like the machine is vulnerable to [MS017-10](https://raw.githubusercontent.com/helviojunior/MS17-010/master/send_and_execute.py) (EternalBlue Exploit).
 
 I first used msfvenom to generate a payload:

@@ -91,7 +91,7 @@ After getting access to the machine, I could not run the 'whoami' command, I tri
 To solve it, I transferred the 'whoami' command from my Kali Linux to the target machine.\
 the 'whoami.exe' binary in Kali is located in this directory: /usr/share/windows-resources/binaries/
 \
-In order to transfer this binary, I created a smb share:\
+In order to transfer this binary, I created a smb share:
 ```bash
 smbserver.py a /usr/share/windows-resources/binaries/ 
 ```

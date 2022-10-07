@@ -1,7 +1,7 @@
 #Enumeration:
 Started with an nmap scan to enumerate the box:
 
-> # Nmap 7.92 scan initiated Thu Jul  7 18:51:17 2022 as: nmap -sS -sV -A -p- -oN nmap.txt 10.10.10.4
+> \# Nmap 7.92 scan initiated Thu Jul  7 18:51:17 2022 as: nmap -sS -sV -A -p- -oN nmap.txt 10.10.10.4
 > Nmap scan report for 10.10.10.4
 > Host is up (0.074s latency).
 > Not shown: 65532 closed tcp ports (reset)
@@ -49,7 +49,7 @@ Started with an nmap scan to enumerate the box:
 > 2   73.83 ms 10.10.10.4
 >
 > OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-> # Nmap done at Thu Jul  7 18:52:21 2022 -- 1 IP address (1 host up) scanned in 64.24 seconds
+> \# Nmap done at Thu Jul  7 18:52:21 2022 -- 1 IP address (1 host up) scanned in 64.24 seconds
 
 
 Testing

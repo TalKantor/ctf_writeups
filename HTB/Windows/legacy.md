@@ -53,7 +53,7 @@ OS and Service detection performed. Please report any incorrect results at https
 ```
 **Smb vulnerabilities scan:** [nmap -sS -p139,445 10.10.10.4 -v --script vuln]:
 
-![smb_scan](smb_scan.png)
+![smb_scan](images/smb_vuln_scan.png)
 
 **Initial Shell Vulnerability Exploited: EternalBlue**\
 With the results of the nmap vulnerabilities scan, it seems like the machine is vulnerable to [MS017-10](https://raw.githubusercontent.com/helviojunior/MS17-010/master/send_and_execute.py) (EternalBlue Exploit).

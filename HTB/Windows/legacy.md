@@ -51,5 +51,5 @@ HOP RTT      ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Thu Jul  7 18:52:21 2022 -- 1 IP address (1 host up) scanned in 64.24 seconds
 ```
-
-Continue
+**Smb vulnerabilities scan:** [nmap -sS -p139,445 10.10.10.4 -v --script vuln]:
+![Smb vulnerabilities scan](smb_scan.png)

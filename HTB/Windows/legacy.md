@@ -72,7 +72,7 @@ python send_and_execute.py 10.10.10.4 revshell.exe
 The EternalBlue exploit works by taking advantage of SMBv1 vulnerabilities present in older versions of
 Microsoft operating systems.\
 The exploit makes use of the way Microsoft Windows handles, or rather mishandles, specially crafted
-packets from malicious attackers. \ All the attacker needs to do is send a maliciously-crafted packet to the
+packets from malicious attackers.\ All the attacker needs to do is send a maliciously-crafted packet to the
 target server, and the malware propagates and a cyberattack ensues.\
 **Vulnerability Fix:**\
 Microsoft has released a set of patches for Windows Vista, 2008, 7, 2008 R2, 2012, 8.1, RT 8.1, 2012 R2,

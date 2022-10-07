@@ -82,4 +82,4 @@ In this scenario, the machine uses Windows XP, and for unsupported Windows opera
 Windows XP, Microsoft recommends that users discontinue the use of SMBv1.\
 
 **Initial Shell Screenshot:**\
-<img src="images/legacy_initialshell.png" alt="initial_shell_poc" width="650" height="200"/>
+<img src="images/legacy_initialshell.png" alt="initial_shell_poc" width="650" height="150"/>

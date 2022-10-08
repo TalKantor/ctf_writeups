@@ -45,7 +45,6 @@ Since I could log into the FTP Service, I thought it might be possible to upload
 I figured I should upload an .aspx reverse shell, because the webserver was ```Microsoft IIS``` </br>
 I uploaded this [webshell](https://github.com/borjmz/aspx-reverse-shell/blob/master/shell.aspx) I found on GitHub. </br>
 I transferred it from my Kali machine to the FTP service with ```put``` command:
-![ftp_upload_revshell](images/devel/ftp_upload_revshell.png) </br> </br>
+<img src="images/devel/ftp_upload_revshell.png" alt="ftp_upload_revshell" width="700" height="150"/> </br> </br>
 I modified it to my IP Address and set it to 1234 port, and opened a netcat listener on my Kali machine on port 1234 with: ```nc -nlvp 1234``` </br>
-![initial_shell_poc](images/devel/initial_shell_poc.png) </br> </br>
-
+<img src="images/devel/initial_shell_poc.png" alt="initial_shell_poc" width="700" height="150"/> </br> </br>

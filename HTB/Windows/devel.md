@@ -56,15 +56,27 @@ Therefore the solution would be disallowing the anonymous user write access. </b
 <!-- Privilege Escalation -->
 
 # Privilege Escalation:
-I first used system info command, and I could see that the machine was running on Windows 7, 6.1.7600 Version and had 32bits 32 bit architecture: </br>
-![system_info](images/devel/system_info.png) </br> </br>
+I first used system info command, and I could see that the machine was running on Windows 7, 6.1.7600 Version and had 32 bit architecture: </br>
+![system_info](images/devel/system_info.png) </br>
 I searched online and found an exploit on [Exploit-DB](https://www.exploit-db.com/exploits/40564). </br>
-I first had to compile the exploit to binary (.exe extension), so I used ```gcc-mingw32``` library for that, (Downloaded
+First I had to compile the exploit to binary (.exe extension), so I used ```gcc-mingw32``` library for that, (Downloaded
 the library to my kali with: ```sudo apt-get install gcc-mingw32```). </br>
 Then I compiled the exploit with this command: ```i586-mingw32msvc-gcc privesc.c -lws2_32 -o exploit.exe``` </br>
 Since it is a binary file, I had to type ```binary``` while using the ftp service, and then to upload the file using
-the put command:
-<img src="images/devel/ftp_exploit_upload.png" alt="ftp_exploit_upload" width="700" height="150"/> </br> </br>
+the ```put``` command:
+<img src="images/devel/ftp_exploit_upload.png" alt="ftp_exploit_upload" width="700" height="150"/> </br>
+I changed to the directory of the FTP service with ```cd "c:\inetpub\wwwroot"``` </br>
+Ran the exploit: </br>
+![privesc_poc](images/devel/privesc_poc.png) </br>
+**Vulnerability Exploited:** Microsoft Windows (x86) - 'afd.sys' Local Privilege Escalation (MS11-046) </br>
+**Vulnerability Explanation:** The Ancillary Function Driver (AFD) supports Windows sockets
+applications and is contained in the afd.sys file. The afd.sys driver runs in kernel mode and manages the Winsock TCP/IP communications protocol.
+An elevation of privilege vulnerability exists where the AFD improperly validates input passed from user
+mode to the kernel.
+An attacker who successfully exploited this vulnerability could run arbitrary code in kernel mode (i.e.
+with NT AUTHORITY\SYSTEM privileges). </br>
+
+
 
 
 

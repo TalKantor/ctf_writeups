@@ -34,4 +34,6 @@ I found an exploit for this version on [Exploit-DB](https://www.exploit-db.com/e
 a %00 sequence in a search action, and the exploit abuses it </br>
 **Initial Shell Screenshot:** </br>
 <img src="images/optimum/initial_shell_poc2.png" alt="initial_shell_poc2" width="650" height="120"/> </br> </br>
-**Privilege Escalation:** <br>
+<!--Privilege Escalation:-->
+# Privilege Escalation:
+A check if thats working

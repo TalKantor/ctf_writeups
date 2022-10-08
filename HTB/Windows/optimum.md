@@ -26,4 +26,4 @@ OS and Service detection performed. Please report any incorrect results at https
 \
 **Initial Shell Vulnerability Exploited:**\
 Since port 80 was open, I got into the main page and could see that it was powered by HttpFileServer (HFS) 2.3:\
-<img src="images/optimum/hfs_mainpage.png" alt="hfs_mainpage" width="500" height="150"/> </br>
+<img src="images/optimum/hfs_mainpage.png" alt="hfs_mainpage" width="500" height="500"/> </br>

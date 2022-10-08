@@ -28,4 +28,9 @@ OS and Service detection performed. Please report any incorrect results at https
 Since port 80 was open, I got into the main page and could see that it was powered by HttpFileServer (HFS) 2.3:\
 <img src="images/optimum/hfs_mainpage.png" alt="hfs_mainpage" width="600" height="400"/> </br>
 I found an exploit for this version on [Exploit-DB](https://www.exploit-db.com/exploits/49584) and modified the exploit to my IP Address and port, and it worked: </br>
-<img src="images/optimum/initial_shell_poc.png" alt="initial_shell_poc" width="1000" height="400"/> </br>
+<img src="images/optimum/initial_shell_poc.png" alt="initial_shell_poc" width="1000" height="400"/> </br>\
+**Vulnerability Explanation:**  The findMacroMarker function in parserLib.pas in Rejetto HTTP File Server
+(aka HFS or HTTP Fileserver) 2.3x before 2.3c allows remote attackers to execute arbitrary programs via
+a %00 sequence in a search action, and the exploit abuses it </br>
+**Initial Shell Screenshot:** </br>
+<img src="images/optimum/initial_shell_poc2.png" alt="initial_shell_poc2" width="800" height="400"/> </br>

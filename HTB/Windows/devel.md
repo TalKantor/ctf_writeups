@@ -56,5 +56,16 @@ Therefore the solution would be disallowing the anonymous user write access. </b
 <!-- Privilege Escalation -->
 
 # Privilege Escalation:
-Im just trying to see if thats ok, that is </br>
-just a test.
+I first used system info command, and I could see that the machine was running on Windows 7, 6.1.7600 Version and had 32bits 32 bit architecture: </br>
+![system_info](images/devel/system_info.png) </br> </br>
+I searched online and found an exploit on [Exploit-DB](https://www.exploit-db.com/exploits/40564). </br>
+I first had to compile the exploit to binary (.exe extension), so I used ```gcc-mingw32``` library for that, (Downloaded
+the library to my kali with: ```sudo apt-get install gcc-mingw32```). </br>
+Then I compiled the exploit with this command: ```i586-mingw32msvc-gcc privesc.c -lws2_32 -o exploit.exe``` </br>
+Since it is a binary file, I had to type ```binary``` while using the ftp service, and then to upload the file using
+the put command:
+<img src="images/devel/ftp_exploit_upload.png" alt="ftp_exploit_upload" width="700" height="150"/> </br> </br>
+
+
+
+

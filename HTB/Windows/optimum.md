@@ -33,4 +33,4 @@ I found an exploit for this version on [Exploit-DB](https://www.exploit-db.com/e
 (aka HFS or HTTP Fileserver) 2.3x before 2.3c allows remote attackers to execute arbitrary programs via
 a %00 sequence in a search action, and the exploit abuses it </br>
 **Initial Shell Screenshot:** </br>
-<img src="images/optimum/initial_shell_poc2.png" alt="initial_shell_poc2" width="400" height="150"/> </br> </br>
+<img src="images/optimum/initial_shell_poc2.png" alt="initial_shell_poc2" width="450" height="200"/> </br> </br>

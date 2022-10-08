@@ -22,7 +22,8 @@ HOP RTT      ADDRESS
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Jul  9 21:42:08 2022 -- 1 IP address (1 host up) scanned in 120.47 seconds
-```\
+```
+\
 **Initial Shell Vulnerability Exploited:**\
 Since port 80 was open, I got into the main page and could see that it was powered by HttpFileServer (HFS) 2.3:\
 <img src="images/optimum/hfs_mainpage.png" alt="hfs_mainpage" width="500" height="150"/> </br>

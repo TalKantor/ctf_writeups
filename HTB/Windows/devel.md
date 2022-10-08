@@ -65,8 +65,7 @@ Then I compiled the exploit with this command: ```i586-mingw32msvc-gcc privesc.c
 Since it is a binary file, I had to type ```binary``` while using the ftp service, and then to upload the file using
 the ```put``` command:
 <img src="images/devel/ftp_exploit_upload.png" alt="ftp_exploit_upload" width="700" height="150"/> </br>
-I changed to the directory of the FTP service with ```cd "c:\inetpub\wwwroot"``` </br>
-Ran the exploit: </br>
+I changed to the directory of the FTP service with ```cd "c:\inetpub\wwwroot"``` and ran the exploit: </br>
 ![privesc_poc](images/devel/privesc_poc.png) </br>
 **Vulnerability Exploited:** Microsoft Windows (x86) - 'afd.sys' Local Privilege Escalation (MS11-046) </br>
 **Vulnerability Explanation:** The Ancillary Function Driver (AFD) supports Windows sockets

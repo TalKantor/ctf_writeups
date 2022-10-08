@@ -86,7 +86,7 @@ Windows XP, Microsoft recommends that users discontinue the use of SMBv1.
 
 <!--Privilege Escalation:-->
 
-#Privilege Escalation:\
+# Privilege Escalation:\
 After getting access to the machine, I could not run the 'whoami' command, I tried using 'echo &username%' instead, but it didn't work.\
 To solve it, I transferred the 'whoami' command from my Kali Linux to the target machine.\
 the 'whoami.exe' binary in Kali is located in this directory: /usr/share/windows-resources/binaries/

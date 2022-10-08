@@ -27,6 +27,6 @@ OS and Service detection performed. Please report any incorrect results at https
 **Initial Shell Vulnerability Exploited:**\
 Since port 80 was open, I got into the main page and could see that it was powered by HttpFileServer (HFS) 2.3:\
 <img src="images/optimum/hfs_mainpage.png" alt="hfs_mainpage" width="600" height="400"/> </br>
-I found an exploit for that version in [Explit-DB](https://www.exploit-db.com/exploits/49584) \
+I found an exploit for that version on [Exploit-DB](https://www.exploit-db.com/exploits/49584) \
 I modified the exploit to my IP Address and port, and it worked: </br>
-<img src="images/optimum/initial_shell_poc.png" alt="initial_shell_poc" width="800" height="500"/> </br>
+<img src="images/optimum/initial_shell_poc.png" alt="initial_shell_poc" width="1000" height="400"/> </br>

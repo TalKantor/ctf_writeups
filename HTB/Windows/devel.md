@@ -48,6 +48,10 @@ I transferred it from my Kali machine to the FTP service with ```put``` command:
 <img src="images/devel/ftp_upload_revshell.png" alt="ftp_upload_revshell" width="700" height="150"/> </br> </br>
 I modified it to my IP Address and set it to 1234 port, and opened a netcat listener on my Kali machine on port 1234 with: ```nc -nlvp 1234``` , and it worked. </br>
 <img src="images/devel/initial_shell_poc.png" alt="initial_shell_poc" width="750" height="250"/> </br>
+**Vulnerability Explanation:** The FTP service allows anonymous login and write access. The anonymous
+user can upload any binary and execute it directly in the browser. </br>
+**Vulnerability Fix:** Anonymous users should have limited access rights and operation restrictions,
+Therefore the solution would be disallowing the anonymous user write access. </br>
 
 <!-- Privilege Escalation -->
 

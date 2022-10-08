@@ -40,7 +40,7 @@ OS and Service detection performed. Please report any incorrect results at https
 Anonymous login was allowed through the FTP Service: </br>
 <img src="images/devel/anonymous_login.png" alt="anonymous_login" width="700" height="150"/> </br> </br>
 I logged in using the username ```anonymous``` and an empty password. </br>
-![ftp_login](images/devel/ftp_login.png) </br> </br>
+<img src="images/devel/ftp_login.png" alt="ftp_login" width="700" height="150"/> </br> </br>
 Since I could log into the FTP Service, I thought it might be possible to upload a malicious file there, and I tried uploading an .aspx reverse shell. </br>
 I figured I should upload an .aspx reverse shell, because the webserver was ```Microsoft IIS``` </br>
 I uploaded this [webshell](https://github.com/borjmz/aspx-reverse-shell/blob/master/shell.aspx) I found on GitHub. </br>

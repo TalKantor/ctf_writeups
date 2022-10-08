@@ -38,7 +38,7 @@ OS and Service detection performed. Please report any incorrect results at https
 ```
 **Initial Shell Vulnerability Exploited:** </br>
 Anonymous login was allowed through the FTP Service: </br>
-<img src="images/devel/anonymous_login.png" alt="anonymous_login" width="700" height="200"/> </br> </br>
+<img src="images/devel/anonymous_login.png" alt="anonymous_login" width="700" height="100"/> </br> </br>
 I logged in using the username ```anonymous``` and an empty password. </br>
 ![ftp_login](images/devel/ftp_login.png) </br> </br>
 Since I could log into the FTP Service, I thought it might be possible to upload a malicious file there, and I tried uploading an .aspx reverse shell. </br>

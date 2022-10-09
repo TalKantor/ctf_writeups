@@ -37,8 +37,7 @@ OS and Service detection performed. Please report any incorrect results at https
 # Nmap done at Mon Jul 18 21:11:24 2022 -- 1 IP address (1 host up) scanned in 177.01 seconds
 ``` 
 </br>
-** Initial Shell Vulnerability Exploited: **
-</br>
+**Initial Shell Vulnerability Exploited:**\
 Since port 80 was open, I got inside the main page and I could see that it was powered by Drupal: </br>
 ![main_page](images/bastard/main_page.png) </br>
 So I ran a drupal scan using [droopescan](https://github.com/SamJoan/droopescan) tool with the command: ```droopescan scan drupal -u 10.10.10.9``` </br>

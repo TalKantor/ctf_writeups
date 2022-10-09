@@ -45,7 +45,8 @@ So I ran a drupal scan using [droopescan](https://github.com/SamJoan/droopescan)
 I could see that the drupal version is 7.54 and I found an exploit for that version on [GitHub](https://github.com/PolarisLab/Drupal-Exploit/blob/master/Drupal-Exploit.php). </br>
 Before running the exploit, I had to install the PHP-curl package and do some modifications in the exploit
 code. </br>
-I installed php-curl with this command: ```sudo apt-get install php-curl``` and modified the exploit code:
+I installed php-curl with this command: ```sudo apt-get install php-curl``` and modified the exploit code: </br>
+
 ```bash
 $url = 'http://10.10.10.9/';
 $endpoint_path = '/rest';

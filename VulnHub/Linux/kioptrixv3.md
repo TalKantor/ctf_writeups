@@ -36,7 +36,7 @@ OS and Service detection performed. Please report any incorrect results at https
 
 **Initial Shell Vulnerability Exploited:** </br>
 Website Main Page: </br>
-![website_main_page](images/kioptrixv3/website_man_page.png) </br>
+![website_main_page](images/kioptrixv3/website_main_page.png) </br>
 I got into the ‘Login’ section, and I saw that it was powered by ‘LotusCMS’ system: </br>
 ![website_login_page](images/kioptrixv3/website_login_page.png) </br>
 I searched online for an exploit and found one in [Github](https://github.com/Hood3dRob1n/LotusCMS-Exploit/blob/master/lotusRCE.sh), and [Exploit-DB](https://www.exploit-db.com/exploits/18565) </br>

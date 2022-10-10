@@ -34,13 +34,13 @@ OS and Service detection performed. Please report any incorrect results at https
 </br>
 
 **Initial Shell Vulnerability Exploited:** </br>
-Was redirected to /jabc by the main page: </br>
+I Was redirected to /jabc by the main page: </br>
 ![jabc](images/vulnos/jabc.png) </br>
 I found this in the ‘Documentation’ tab source code: </br>
 ![jabc_doc](images/vulnos/jabc_doc.png) </br>
 Which eventually lead me into this website: </br>
 ![opendocman_mainpage](images/vulnos/opendocman_mainpage.png) </br>
-It was powered by OpenDocMan v1.2.7 I searched it online, and saw that it has multiple vulnerabilities [Exploit-DB](https://www.exploit-db.com/exploits/32075) </br>
+It was powered by OpenDocMan v1.2.7 I searched it online, and saw that this version has multiple vulnerabilities. [Exploit-DB](https://www.exploit-db.com/exploits/32075) </br>
 **SQL Injection in OpenDocMan:** </br>
 ![opendocman_sqli](images/vulnos/opendocman_sqli.png) </br>
 **Example of a SQL Injection payload:** <br>
@@ -57,13 +57,13 @@ I used sqlmap to dump all of the database: </br> </br>
 **I dumped odm_user:** </br>
 ![dump_odmuser](images/vulnos/dump_odmuser.png) </br>
 ![dump_odmuser2](images/vulnos/dump_odmuser2.png) </br>
-I cracked the password online:
+**I cracked the password online:** </br>
 ![pass_crack](images/vulnos/pass_crack.png) </br>
 And connected to the user via SSH. </br>
 **Vulnerability Explanation:** : A SQL injection attack consists of insertion or “injection” of a SQL query
 via the input data from the client to the application. </br>
 **Vulnerability Fix:**  Most instances of SQL injection can be prevented by using parameterized queries
-(also known as prepared statements) instead of string concatenation within the query. </br>
+(also known as prepared statements) instead of string concatenation within the query. </br> </br>
 **Initial Shell Screenshot:** </br>
 ![initial_shell_poc](images/vulnos/initial_shell_poc.png) </br>
 # Privilege Escalation:

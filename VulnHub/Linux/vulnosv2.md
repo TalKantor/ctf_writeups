@@ -32,6 +32,7 @@ OS and Service detection performed. Please report any incorrect results at https
 # Nmap done at Wed Jun  1 22:36:30 2022 -- 1 IP address (1 host up) scanned in 21.17 seconds
 ```
 </br>
+
 **Initial Shell Vulnerability Exploited:** </br>
 Was redirected to /jabc by the main page: </br>
 ![jabc](images/vulnos/jabc.png) </br>

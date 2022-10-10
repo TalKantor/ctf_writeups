@@ -67,4 +67,19 @@ via the input data from the client to the application. </br>
 **Initial Shell Screenshot:** </br>
 ![initial_shell_poc](images/vulnos/initial_shell_poc.png) </br>
 # Privilege Escalation:
-just a test to see if i can write in here. </br>
+I used linPEAS enumeration script, and saw this: </br>
+![linpeas_enum](images/vulnos/linpeas_enum.png) </br>
+On the CVE Check section, I could see that there is a PE vector with high chances to actually work. </br>
+**Vulnerability Explanation:** </br>
+**Polkit pkexec for Linux:** </br>
+Polkit (formerly PolicyKit) is a component for controlling system-wide
+privileges in Unix-like operating systems. It provides an organized way for
+non-privileged processes to communicate with privileged processes. It is also
+possible to use polkit to execute commands with elevated privileges using the
+command pkexec followed by the command intended to be executed (with root
+permission). </br>
+**Vulnerability Fix:** If no patches are available for your operating system, you can remove the SUID-bit from pkexec as a
+temporary mitigation; </br>
+For an example: ```# chmod 0755 /usr/bin/pkexec``` </br> 
+**Proof of Screenshot:** </br>
+![pe_poc](images/vulnos/pe_poc.png)

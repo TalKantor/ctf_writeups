@@ -66,7 +66,7 @@ application to run. Use only GET and POST methods for all HTTP requests where
 possible. </br>
 If you need any insecure HTTP methods to be enabled on your server, make sure
 they are properly authorized and available only for specific resources. This
-way you’ll prevent any malicious usage of those. </br>
+way you’ll prevent any malicious usage of those. </br> </br>
 **Initial Shell Screenshot:** </br>
 ![initial_shell_poc](images/vulnos/initial_shell_poc.png) </br>
 

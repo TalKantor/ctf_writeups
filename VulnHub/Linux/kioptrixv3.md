@@ -46,6 +46,7 @@ I read the code, and decided to try to exploit it manually: </br>
  ?page=index (Might be a LFI/RFI vulnerability)
 ```
 </br>
+
 ![vuln_check_function](images/kioptrixv3/vuln_check_function.png) </br>
 As written in the script- the vulnerable parameter is ```');${};#``` </br>
 I tried it out on burpsuite: </br>

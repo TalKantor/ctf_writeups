@@ -65,7 +65,6 @@ via the input data from the client to the application. </br>
 **Vulnerability Fix:**  Most instances of SQL injection can be prevented by using parameterized queries
 (also known as prepared statements) instead of string concatenation within the query. </br>
 **Initial Shell Screenshot:** </br>
-[initial_shell_poc](images/vulnos/initial_shell_poc) </br>
+![initial_shell_poc](images/vulnos/initial_shell_poc) </br>
 # Privilege Escalation:
 just a test to see if i can write in here. </br>
-

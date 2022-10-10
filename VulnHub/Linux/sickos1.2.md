@@ -102,3 +102,4 @@ is located in the function slapper() in the shell script chkrootkit. </br>
 chkrootkit Web site. </br> </br>
 **Proof of screenshot:** </br>
 ![pe_poc](images/sickos/pe_poc.png)
+

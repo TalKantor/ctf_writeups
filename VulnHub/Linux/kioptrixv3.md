@@ -52,8 +52,9 @@ As written in the script- the vulnerable parameter is ```');${};#``` </br>
 I tried it out on burpsuite: </br>
 ![vuln_param_burpsuite](images/kioptrixv3/vuln_param_burpsuite.png) </br>
 **Vulnerability Explanation:**  An attacker can exploit this vulnerability to execute local commands through
-the webserver’s URL. This allowed the attacker to gain remote access to and compromise the system. </br>
-**Vulnerability Fix:** Upgrade to the latest version of LotusCMS, available from the LotusCMS Web site. </br>
+the webserver’s URL. </br>
+This allowed the attacker to gain remote access to and compromise the system. </br>
+**Vulnerability Fix:** Upgrade to the latest version of LotusCMS, available from the LotusCMS Web site. </br> </br>
 ***Proof Of Screenshot:** </br>
 ![initial_shell_poc](images/kioptrixv3/initial_shell_poc.png) </br>
 # Privilege Escalation: 

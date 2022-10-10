@@ -55,10 +55,10 @@ I used sqlmap to dump all of the database: </br> </br>
 ![sqlmap_gettables](images/vulnos/sqlmap_gettables.png) </br>
 ![sqlmap_gettables2](images/vulnos/sqlmap_gettables2.png) </br>
 **I dumped odm_user:** </br>
-![dump_odmuser](vulnos/images/dump_odmuser.png) </br>
-![dump_odmuser2](vulnos/images/dump_odmuser2.png) </br>
+![dump_odmuser](images/vulnos/dump_odmuser.png) </br>
+![dump_odmuser2](images/vulnos/images/dump_odmuser2.png) </br>
 I cracked the password online:
-![pass_crack](vulnos/images/pass_crack.png) </br>
+![pass_crack](images/images/pass_crack.png) </br>
 And connected to the user via SSH. </br>
 **Vulnerability Explanation:** : A SQL injection attack consists of insertion or “injection” of a SQL query
 via the input data from the client to the application. </br>

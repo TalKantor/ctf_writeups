@@ -58,7 +58,7 @@ I used sqlmap to dump all of the database: </br> </br>
 ![dump_odmuser](images/vulnos/dump_odmuser.png) </br>
 ![dump_odmuser2](images/vulnos/dump_odmuser2.png) </br>
 I cracked the password online:
-![pass_crack](images/images/pass_crack.png) </br>
+![pass_crack](images/vulnos/pass_crack.png) </br>
 And connected to the user via SSH. </br>
 **Vulnerability Explanation:** : A SQL injection attack consists of insertion or “injection” of a SQL query
 via the input data from the client to the application. </br>

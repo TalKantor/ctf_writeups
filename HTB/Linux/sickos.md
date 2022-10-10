@@ -89,7 +89,8 @@ privileges: </br>
 Then I gave the file this permissions to make it editable: </br>
 ```echo www-data ALL=(ALL)NOPASSWD: ALL >> etc/sudoers``` </br>
 In order to append that to the sudoers file, which will eventually add us to the sudoers and grant us root
-privileges. and then I had to change again the permissions for the sudoers file, because otherwise It wouldn't work: </br>
+privileges. </br>
+and then I had to change again the permissions for the sudoers file, because otherwise It wouldn't work: </br>
 ```echo “chmod 440 /etc/sudoers” > update``` </br>
 **Vulnerability Explanation:** </br>
 chkrootkit:

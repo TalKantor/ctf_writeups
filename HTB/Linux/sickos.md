@@ -82,7 +82,7 @@ First, I created a file inside of the /tmp/update directory with a bash command 
 ```echo ‘touch /tmp/exploit’ > update``` </br>
 Then I gave it ‘777’ permissions with: ```chmod 777 update``` </br>
 And waited until the cron job ran. </br>
-![cronjob_root](cronjob_root.png) </br>
+![cronjob_root](images/sickos/cronjob_root.png) </br>
 Knowing the previous command executed, I could add my current user to the sudoers file and get root
 privileges: </br>
 ```echo “chmod 777 /etc/sudoers” > update``` </br>

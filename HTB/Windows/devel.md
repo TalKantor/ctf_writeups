@@ -38,16 +38,16 @@ OS and Service detection performed. Please report any incorrect results at https
 ```
 **Initial Shell Vulnerability Exploited:** </br>
 Anonymous login was allowed through the FTP Service: </br>
-<img src="images/devel/anonymous_login.png" alt="anonymous_login" width="700" height="150"/> </br> </br>
+![anonymous_login](images/devel/anonymous_login.png) </br> </br>
 I logged in using the username ```anonymous``` and an empty password. </br>
-<img src="images/devel/ftp_login.png" alt="ftp_login" width="700" height="150"/> </br> </br>
+![ftp_login](images/devel/ftp_login.png) </br> </br>
 Since I could log into the FTP Service, I thought it might be possible to upload a malicious file there, and I tried uploading an .aspx reverse shell. </br>
 I figured I should upload an .aspx reverse shell, because the webserver was ```Microsoft IIS``` </br>
 I uploaded this [webshell](https://github.com/borjmz/aspx-reverse-shell/blob/master/shell.aspx) I found on GitHub. </br>
 I transferred it from my Kali machine to the FTP service with ```put``` command:
-<img src="images/devel/ftp_upload_revshell.png" alt="ftp_upload_revshell" width="700" height="150"/> </br> </br>
+![ftp_upload_revshell](images/devel/ftp_upload_revshell.png) </br> </br>
 I modified it to my IP Address and set it to 1234 port, and opened a netcat listener on my Kali machine on port 1234 with: ```nc -nlvp 1234``` , and it worked. </br>
-<img src="images/devel/initial_shell_poc.png" alt="initial_shell_poc" width="750" height="250"/> </br>
+![initial_shell_poc](images/devel/initial_shell_poc.png) </br>
 **Vulnerability Explanation:** The FTP service allows anonymous login and write access. The anonymous
 user can upload any binary and execute it directly in the browser. </br>
 **Vulnerability Fix:** Anonymous users should have limited access rights and operation restrictions,
@@ -64,7 +64,7 @@ the library to my kali with: ```sudo apt-get install gcc-mingw32```). </br>
 Then I compiled the exploit with this command: ```i586-mingw32msvc-gcc privesc.c -lws2_32 -o exploit.exe``` </br>
 Since it is a binary file, I had to type ```binary``` while using the ftp service, and then to upload the file using
 the ```put``` command:
-<img src="images/devel/ftp_exploit_upload.png" alt="ftp_exploit_upload" width="700" height="150"/> </br>
+![ftp_exploit_upload](images/devel/ftp_exploit_upload.png) </br>
 I changed to the directory of the FTP service with ```cd "c:\inetpub\wwwroot"``` and ran the exploit: </br>
 ![privesc_poc](images/devel/privesc_poc.png) </br>
 **Vulnerability Exploited:** Microsoft Windows (x86) - 'afd.sys' Local Privilege Escalation (MS11-046) </br>

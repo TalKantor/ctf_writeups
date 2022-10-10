@@ -99,6 +99,6 @@ in the chkrootkit package, and it may allow local attackers to gain root access
 to a box in certain configurations (/tmp not mounted noexec). The vulnerability
 is located in the function slapper() in the shell script chkrootkit. </br>
 **Vulnerability Fix:** Upgrade to the latest version of chkrootkit (0.50 or later), available from the
-chkrootkit Web site. </br>
+chkrootkit Web site. </br> </br>
 **Proof of screenshot:** </br>
 ![pe_poc](images/sickos/pe_poc.png)

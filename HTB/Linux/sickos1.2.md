@@ -39,8 +39,8 @@ Main Page was empty, I decided to check the HTTP permission methods on the serve
 Burpsuite: </br>
 ![burpsuite_http_methods](images/sickos/burpsuite_http_methods.png) </br>
 
-I replaced ‘GET’ with OPTIONS and I could see at the response some request methods that should have
-been disallowed, The most interesting one is the ‘PUT’ method: </br>
+I replaced â€˜GETâ€™ with OPTIONS and I could see at the response some request methods that should have
+been disallowed, The most interesting one is the â€˜PUTâ€™ method: </br>
 **PUT** is used to send data to a server to create/update a resource, that means that we could upload files into the /test directory.
 </br>
 I uploaded a webshell: </br>
@@ -66,7 +66,7 @@ application to run. Use only GET and POST methods for all HTTP requests where
 possible. </br>
 If you need any insecure HTTP methods to be enabled on your server, make sure
 they are properly authorized and available only for specific resources. This
-way you’ll prevent any malicious usage of those. </br> </br>
+way youâ€™ll prevent any malicious usage of those. </br> </br>
 **Initial Shell Screenshot:** </br>
 ![initial_shell_poc](images/sickos/initial_shell_poc.png) </br>
 
@@ -79,19 +79,19 @@ he exploit is for Chkrootkit version 0.49, so I checked the version of this tool
 ![chkrootkit_version](images/sickos/chkrootkit_version.png) </br>
 This version is vulnerable. </br>
 First, I created a file inside of the /tmp/update directory with a bash command and made it executable: </br>
-```echo ‘touch /tmp/exploit’ > update``` </br>
-Then I gave it ‘777’ permissions with: ```chmod 777 update``` </br>
+```echo â€˜touch /tmp/exploitâ€™ > update``` </br>
+Then I gave it â€˜777â€™ permissions with: ```chmod 777 update``` </br>
 And waited until the cron job ran. </br>
 ![cronjob_root](images/sickos/cronjob_root.png) </br>
 Knowing the previous command executed, I could add my current user to the sudoers file and get root
 privileges: </br>
-```echo “chmod 777 /etc/sudoers” > update``` </br>
+```echo â€œchmod 777 /etc/sudoersâ€ > update``` </br>
 Then I gave the file this permissions to make it editable: </br>
 ```echo www-data ALL=(ALL)NOPASSWD: ALL >> etc/sudoers``` </br>
 In order to append that to the sudoers file, which will eventually add us to the sudoers and grant us root
 privileges. </br>
 and then I had to change again the permissions for the sudoers file, because otherwise It wouldn't work: </br>
-```echo “chmod 440 /etc/sudoers” > update``` </br>
+```echo â€œchmod 440 /etc/sudoersâ€ > update``` </br>
 **Vulnerability Explanation:** </br>
 chkrootkit:
 chkrootkit is a tool to locally check for signs of a rootkit, the vulnerability

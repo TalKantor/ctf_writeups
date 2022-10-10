@@ -42,9 +42,9 @@ Burpsuite: </br>
 I replaced ‘GET’ with OPTIONS and I could see at the response some request methods that should have
 been disallowed, The most interesting one is the ‘PUT’ method: </br>
 **PUT** is used to send data to a server to create/update a resource, that means that we could upload files into the /test directory.
-
 </br>
 I uploaded a webshell: </br>
+
 ![webshell_upload](images/vulnos/webshell_upload.png) </br>
 ![webshell_poc](images/vulnos/webshell_poc.png) </br>
 I got a reverse shell with netcat: </br>

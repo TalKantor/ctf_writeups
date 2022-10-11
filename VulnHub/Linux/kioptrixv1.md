@@ -19,7 +19,7 @@ session. </br> </br>
 ![shell_poc](images/kioptrixv1/shell_poc.png) </br>
 # Privilege Escalation:
 I used LinPeas for enumerating and saw that: </br>
-![linux_version](images/kioptrixv1/linux_version) </br>
+![linux_version](images/kioptrixv1/linux_version.png) </br>
 I found an exploit for this version on [Exploit-DB](https://www.exploit-db.com/exploits/3) </br>
 **Vulnerability Exploited:** Linux Kernel 2.4.7 ptrace/kmod Privilege Escalation Exploit. </br>
 **Vulnerability Explanation:**  This code exploits a race condition in kernel/kmod.c, which creates kernel

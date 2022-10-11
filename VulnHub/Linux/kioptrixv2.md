@@ -118,6 +118,6 @@ Gave it Execution Permissions: </br>
 and (2) net/ipv6/udp.c in the Linux kernel before 2.6.19 allows local users to gain privileges or cause a
 denial of service (NULL pointer dereference and system crash) via vectors involving the MSG_MORE
 flag and a UDP socket. </br> </br>
-**Proof Of Screenshot:** </br>
+**Proof of Screenshot:** </br>
 ![pe_poc](images/kioptrixv2/pe_poc.png)
 

@@ -102,7 +102,7 @@ prepared statements) instead of string concatenation within the query. </br> </b
 ![shell_poc](images/kioptrixv2/shell_poc.png) </br>
 # Privilege Escalation:
 I checked the kernel version of the machine with the command: ```uname -a``` </br>
-![uname_cmd](images/kioptrixv2/images_cmd.png) </br>
+![uname_cmd](images/kioptrixv2/uname_cmd.png) </br>
 I found an exploit in [Exploit-DB](https://www.exploit-db.com/exploits/9542) </br>
 **File Transferring:** </br>
 I opened an HTTP server on my Kali machine with this command:

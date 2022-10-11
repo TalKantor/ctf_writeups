@@ -7,7 +7,7 @@ This exploit has 2 versions, I picked the updated one in the link above, Also to
 necessary to install the ```libssl-dev``` package. </br>
 I installed the package with this command: ```sudo apt-get install libssl-dev``` </br>
 **Exploit Usage:** </br>
-![exploit_usage](images/kioptrixv1/exploit_usage) </br>
+![exploit_usage](images/kioptrixv1/exploit_usage.png) </br>
 I used this: </br>
 ```./Openfuck 0x6b 192.168.65.133 1234 -c 40:``` </br>
 **Vulnerability Explanation:** The dbm and shm session cache code in mod_ssl before 2.8.7-1.3.23, and

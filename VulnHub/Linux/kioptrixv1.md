@@ -26,7 +26,7 @@ I found an exploit for this version on [Exploit-DB](https://www.exploit-db.com/e
 thread in insecure manner. This bug allows to ptrace cloned process, allowing to take control over
 privileged modprobe binary. </br>
 **Vulnerability Fix:** Upgrade to security fix. </br> </br>
-Scerenshot Proof: </br>
+**Scerenshot Proof:** </br>
 ![pe_poc](images/kioptrixv1/pe_poc.png)
 
 

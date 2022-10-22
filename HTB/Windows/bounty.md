@@ -98,8 +98,8 @@ I picked up this CLSID: ```{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}```, And this i
 **Vulnerability Exploited:** Juicy Potato Exploit. </br>
 **Vulnerability Explanation:** Juicy Potato is a local privilege escalation tool to exploit Windows service account’s impersonation privileges. </br>
 The tool takes advantage of the SeImpersonatePrivilege or SeAssignPrimaryTokenPrivilege if enabled on the machine to elevate the local privileges to System. </br>
-Normally, these privileges are assigned to service users, admins, and local systems — high integrity elevated users. </br>
-**Proof Screenshot Here:** </br>
+Normally, these privileges are assigned to service users, admins, and local systems — high integrity elevated users. </br> </br>
+**Proof Screenshot Here:** </br> 
 ![priv_esc](images/bounty/priv_esc.png) </br>
 
 

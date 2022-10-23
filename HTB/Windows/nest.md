@@ -48,6 +48,7 @@ one Data attribute is present], that can be used to store arbitrary data (and
 even complete files).
 ``` 
 </br>
+
 So the list the data inside the file, I can do: ```allinfo 'Debug Mode Password.txt'``` </br>
 ![allinfo_command](images/nest/allinfo_command.png) </br>
 It looked like it had 15 bytes in ```:Password:$Data:``` stream, so I downloaded the file with: ```get "Debug Mode Password.txt:Password:$DATA``` </br>
@@ -67,7 +68,7 @@ management. </br>
 - Store passwords using strong adaptive and salted hashing functions with a work factor. </br>
 
 #Privilege Escalation:
-
+`
 
 
 

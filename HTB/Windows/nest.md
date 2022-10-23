@@ -2,7 +2,7 @@
 ![nmap](images/nest/nmap.png) </br>
 **Initial Shell Vulnerability Exploited: Sensitive Data Exposure** </br>
 First, I listed the smb shares with smbshare: </br>
-![smbshare](images/nest/smbshare.png) </br>
+![smbmap](images/nest/smbmap.png) </br>
 I could see that I had read access to the Data and Users smb directories as an anonymous user. </br>
 I first got into the 'Data' directory, and recursively downloaded all of the files: </br>
 ![recursive_download](images/nest/recursive_download.png) </br>

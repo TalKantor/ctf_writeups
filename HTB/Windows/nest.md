@@ -103,7 +103,7 @@ I then tried logging in using psexec. </br>
 **PsExec:** allows for remote command execution (and receipt of resulting output) over a named pipe with
 the Server Message Block (SMB) protocol, which runs on TCP port 445. </br> </br>
 I specified the nest.local domain, as I saw it in the LDAP.conf file. </br>
-```psexec.py nest.local/Administrator@10.10.10.178``` </br>
+```psexec.py nest.local/Administrator@10.10.10.178``` </br> </br>
 **Vulnerability Exploited:** Path Traversal Vulnerability that allows to obtain the encrypted admin
 password. </br>
 **Vulnerability Explanation:** HqkLdap SETDIR command allows directory traversal, by going back to the

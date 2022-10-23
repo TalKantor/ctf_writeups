@@ -52,6 +52,7 @@ Warning: pg_query(): Query failed: ERROR: unterminated quoted string at or near 
 Warning: pg_num_rows() expects parameter 1 to be resource, bool given in /var/www/admin/index.php on line 11
 ```
 </br>
+
 I used this payload: ```' or 1=1-- -``` and successfully bypassed the login form: </br>
 ![admin_dashboard](images/toolbox/admin_dashboard.png) </br>
 I decided to use sqlmap for the SQL Enumeration since it's a blind injection, and i failed to enumerate it manually. </br>

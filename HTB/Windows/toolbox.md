@@ -43,7 +43,7 @@ Nmap done: 1 IP address (1 host up) scanned in 69.77 seconds
 
 **Initial Shell:** </br>
 I went to the webpage on https://10.10.10.236/ and saw a website for a company called MegaLogistics. </br>
-On the nmap scan, we see a ```commonName=admin.megalogistic.com``` , so I added it to the /etc/host file, and tried to get inside: </br>
+On the nmap scan, we see a commonName=```admin.megalogistic.com``` , so I added it to the /etc/host file, and tried to get inside: </br>
 ![admin_mainpage](images/toolbox/admin_mainpage.png) </br>
 It looks like a login page, I tried to see if it was vulnearble to SQL Injections using ```'```` on the password field, and it displayed an error message: </br>
 ```bash

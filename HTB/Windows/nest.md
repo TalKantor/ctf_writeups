@@ -106,7 +106,7 @@ I specified the nest.local domain, as I saw it in the LDAP.conf file. </br>
 ```psexec.py nest.local/Administrator@10.10.10.178``` </br> </br>
 **Vulnerability Exploited:** Path Traversal Vulnerability that allows to obtain the encrypted admin
 password. </br>
-**Vulnerability Explanation:** HqkLdap SETDIR command allows directory traversal, by going back to the
+**Vulnerability Explanation:** ```HqkLdap SETDIR``` command allows directory traversal, by going back to the
 previous directories it allowed us to read arbitrary files in the system. </br>
 **Vulnerability Fix:** Do not allow using the ```SETDIR``` command into directories that may contain sensitive
 files, whitelist only the files you want the user to access. </br> </br>

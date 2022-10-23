@@ -1,6 +1,5 @@
 # Enumeration: 
 ```bash
-Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-23 13:19 EDT
 Nmap scan report for 10.10.10.236
 Host is up (0.019s latency).
 

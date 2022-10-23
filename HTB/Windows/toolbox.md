@@ -55,7 +55,7 @@ Warning: pg_num_rows() expects parameter 1 to be resource, bool given in /var/ww
 
 I used this payload: ```' or 1=1-- -``` and successfully bypassed the login form: </br>
 ![admin_dashboard](images/toolbox/admin_dashboard.png) </br>
-I decided to use sqlmap for the SQL Enumeration since it's a blind injection, and i failed to enumerate it manually. </br>
+I decided to use sqlmap for the SQL Enumeration but since it's a blind injection it was fairly difficult and i failed to enumerate it manually. </br>
 I captured the request with burpsuite, and copied it to an empty file and then used this command: </br>
 ```sqlmap -r request.txt --dbs --force-ssl``` Sqlmap identified that the login page is vulnerable to SQL Injection but unfourtanetly I couldn't find anything useful. </br>
 In some rare cases, sqlmap can obtain a operating system shell with flag ```--os-shell``` , I tried it out: </br>

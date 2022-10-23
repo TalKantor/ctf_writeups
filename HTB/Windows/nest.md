@@ -58,6 +58,7 @@ but this file came in handy later on. Since I saw a bunch of files related to th
 **Vulnerability Explanation:** </br>
 Sensitive data is any information that is meant to be protected from unauthorized access, Sensitive data can include anything from personally identifiable information, to banking information, to login credentials </br>
 When this data is accessed by an attacker as a result of a data breach, users are at risk for sensitive data exposure. </br>
+</br>
 **Vulnerability Fix:** </br>
 - Classify data processed, stored or transmitted by an application. Identify which data is sensitive
 according to privacy laws, regulatory requirements, or business needs. </br>

@@ -68,9 +68,51 @@ according to privacy laws, regulatory requirements, or business needs. </br>
 management. </br>
 - Store passwords using strong adaptive and salted hashing functions with a work factor. </br>
 
-#Privilege Escalation:
-`
+# Privilege Escalation:
+I could see a list of commands there: </br>
+**LIST:** Lists the available queries in the current directory, along with an ID number for each query. This
+number can be used with the RUNQUERY or SHOWQUERY commands. </br>
+**SETDIR:** Selects a new directory where query files can be run from. </br>
+**RUNQUERY:** Runs the specified database query and displays the results, unfortunately, this command
+didn't work. </br>
+**DEBUG:** Enables debug mode, which allows the use of additional commands to use for troubleshooting network and configuration issues. </br>
+That requires a password, so I tried to use the password I found before in the ```Password.txt:Password:$DATA"``` file. And it worked, It allowed the use of some new commands: </br>
+![debug_mode](images/nest/debug_mode.png) </br>
+**SERVICE:** Shows information about the HQK reporting service that is serving this client. </br>
+**SESSION:** Shows information about the current network session established with the HQK reporting service. </br>
+**SHOWQUERY:** Shows the contents of the specified database query. </br>
+I couldn’t find anything in this current directory, but I figured that I can move back up to the previous directory: </br>
+![setdir_goback](images/nest/setdir_goback.png) </br>
+In ```HQK/LDAP``` Directory I found the same binary I found before in the smb service, and I also found an Administrator user credentials. </br>
+I used ```showquery``` command to read the content of ```LDAP.conf``` file, and saw this: </br>
+![ldap_showquery](images/nest/ldap_showquery.png) </br>
+Once again it looked like a base64 encoding, I tried to decode it but it didn't work, I then tried using the VB.NET code from earlier to decode it but it still didn't work. </br>
+I decided to try and open the executable ```HqkLdap.exe``` I found before, to Investigate it I used a program called [dnSpy](https://github.com/dnSpy/dnSpy) (A windows debugger and a disassembler). </br>
+I opened ```HqkLdap.exe``` in dnSpy I could see all of the code of the program, I found the encryption
+class and modified my decryption code from earlier, according to the new file I found: </br>
+![dnspy_decrypt](images/nest/dnspy_decrypt.png) </br>
+According to this, I modified the previous code in VB.NET compiler: </br>
+**1.** </br>
+![decrypt_fun_1](images/nest/decrypt_fun_1.png) </br>
+**2.** </br>
+![decrypt_fun_2](images/nest/decrypt_fun_2.png) </br>
+This is the encrypted Administrator password.
+And It worked: </br>
+![decrypted_result](images/nest/decrypted_result.png) </br>
+I then tried logging in using psexec. </br>
+```bash
+PsExec: allows for remote command execution (and receipt of resulting output) over a named pipe with
+the Server Message Block (SMB) protocol, which runs on TCP port 445.
+``` </br>
 
-
-
+I specified the nest.local domain, as I saw it in the LDAP.conf file. </br>
+```psexec.py nest.local/Administrator@10.10.10.178``` </br>
+**Vulnerability Exploited:** Path Traversal Vulnerability that allows to obtain the encrypted admin
+password. </br>
+**Vulnerability Explanation:** HqkLdap SETDIR command allows directory traversal, by going back to the
+previous directories it allowed us to read arbitrary files in the system. </br>
+**Vulnerability Fix:** Do not allow using the ```SETDIR``` command into directories that may contain sensitive
+files, whitelist only the files you want the user to access. </br> </br>
+**Proof Of Screenshot:** </br>
+![privesc_proof](images/nest/privesc_proof.png)
 

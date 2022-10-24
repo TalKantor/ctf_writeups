@@ -11,7 +11,11 @@ Shellshock could enable an attacker to cause Bash to execute arbitrary commands 
 to many Internet-facing services, such as web servers, that use Bash to process requests. </br>
 the cgi-bin directory compiles and executes perl and shell scripts, rather than store them as basic HTML docs. </br> </br>
 So I used gobuster again, this time with specific extensions to see if there is any script under the /cgi-bin directory: </br>
-```gobuster dir -u http://10.10.10.56/cgi-bin/ -x .php,.html,.txt,.sh -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30``` </br>
+```
+gobuster dir -u http://10.10.10.56/cgi-bin/ -x .php,.html,.txt,.sh -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30
+``` 
+</br>
+
 I found a script called user.sh located in the /cgi-bin/ directory. </br>
 To exploit it I used this one-liner from [GitHub](https://github.com/opsxcq/exploit-CVE-2014-6271): </br>
 ```bash

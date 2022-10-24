@@ -39,3 +39,42 @@ and it worked: </br>
 ![initial_shell](images/spectra/initial_shell.png) </br>
 
 # Privilege Escalation: 
+After I got the initial shell, I was logged in as ```nginx``` user. </br>
+I did some enumeration with linPEAS script, and found this: </br>
+![passwd_file](images/spectra/passwd_file.png) </br>
+![passwd_file_2](images/spectra/passwd_file_2.png) </br>
+It looked like some user credentials, so I went to /home directory </br>
+![home_directory](images/spectra/home_directory.png) </br>
+And I tried to log in into each user with this credentials, using SSH. </br>
+![shell_as_katie](images/spectra/shell_as_katie.png) </br>
+It worked. </br>
+The first thing I tried to do was using ```sudo -l``` , and it looked like this user could run this command as
+sudo: </br>
+![initctl_as_sudo](images/spectra/initctl_as_sudo.png) </br>
+![initctl_help](images/spectra/initctl_help.png) </br>
+**init** - Upstart process management daemon
+On startup, the Upstart init daemon reads its job configuration from the /etc/init directory, and watches for
+future changes using inotify.
+The primary use of jobs is to define services or tasks to be run by the init daemon. Each job may have one
+or more different processes run as part of its lifecycle, with the most common known as the main process.
+The main process is defined using either the exec or script stanzas, only one of which is permitted. These
+specify the executable or shell script that will be run when the job is considered to be running. Once this
+process terminates, the job stop. </br>
+**initctl** - allows a system administrator to communicate and interact with the Upstart init daemon.
+After reading about this, I figured that all of initctl jobs were at /etc/init, so I checked if I could modify
+any. </br>
+![initctl_jobs](images/spectra/initctl_jobs.png) </br>
+Since I was at the 'developers' group, I could edit/write to all of those jobs, I verified it by listing all
+of the jobs with ```sudo initctl list```, and I found that it matched the list. </br>
+To escalate my privileges I edited one of the jobs that I had access to (I chose test.conf file), and put
+this inside: </br>
+```echo 'chmod 777 /etc/sudoers && echo "katie ALL=NOPASSWD: ALL" >> /etc/sudoers
+&& chmod 440 /etc/sudoers' > /tmp/test.sh && bash /tmp/test.sh``` </br>
+![initctl_job_modify](images/spectra/initctl_job_modify.png) </br>
+I ran it with: ```sudo initctl start test``` And it worked. </br> </br>
+**Vulnerability Exploited:** Initctl binary runs as sudo </br>
+**Vulnerability Explanation:** If the binary is allowed to run as superuser by sudo, it does not drop the
+elevated privileges and may be used to access the file system, escalate or maintain privileged access. </br>
+**Vulnerability Fix:** Do not let a low privileged user to run binaries as sudo. </br> </br>
+**Proof Screenshot Here:** </br>
+![privesc_proof](images/spectra/privesc_proof.png)

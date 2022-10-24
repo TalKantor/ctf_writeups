@@ -40,7 +40,7 @@ and it worked: </br>
 
 # Privilege Escalation: 
 After I got the initial shell, I was logged in as ```nginx``` user. </br>
-I did some enumeration with linPEAS script, and found this: </br>
+I did some enumeration with LinPEAS script, and found this: </br>
 ![passwd_file](images/spectra/passwd_file.png) </br>
 ![passwd_file_2](images/spectra/passwd_file_2.png) </br>
 It looked like some user credentials, so I went to /home directory </br>

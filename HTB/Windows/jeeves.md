@@ -32,6 +32,7 @@ Browsing through the system, I found a way to execute arbitrary code on the webs
 I went to the ```manage jenkins``` tab, and saw this: </br>
 ![manage_jenkins](images/jeeves/manage_jenkins.png) </br>
 This is a groovy script console, to exploit it I used a groovy reverse shell I found on [GitHub](https://gist.github.com/frohoff/fed1ffaab9b9beeb1c76) </br>
-Opened a netcat listener on another terminal, and it worked: </br>
+Opened a netcat listener on another terminal, and it worked. </br> </br>
+**Proof Of Screenshot:** </br>
 ![initial_shell](images/jeeves/initial_shell.png) </br> </br>
 # Privilege Escalation: 

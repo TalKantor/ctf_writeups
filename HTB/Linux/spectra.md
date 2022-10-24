@@ -1,28 +1,28 @@
 # Enumeration
-![nmap_scan](images/spectra/nmap_scan.png) </br>
+![nmap_scan](images/spectra/nmap_scan.png) </br> 
 **Initial Shell:** </br>
-First, I navigated to the website and saw a simple page with two links: </br>
-![mainpage](images/spectra/mainpage.png) </br>
+First, I navigated to the website and saw a simple page with two links: </br> 
+![mainpage](images/spectra/mainpage.png) </br> </br>
 Both links redirected me to spectra.htb, so I added this to the ```etc/hosts``` file. </br>
 The second link returned: “error establishing a database connection”, but looking at the link without the ```index.php``` I got a directory listing. </br>
 Most of the files there are default and have nothing interesting inside, except of one file: </br>
-![testing_index](images/spectra/testing_index.png) </br>
+![testing_index](images/spectra/testing_index.png) </br> </br>
 ```wp-config.php``` is the base configuration file for WordPress, where the database username and password will be stored, </br>
 but clicking on it will just run the PHP on the background, however if we click at the ```wp-config.php.save``` file <br>
 and viewing the source, we get this: </br>
-![wpconfig](images/spectra/wpconfig.png) </br>
+![wpconfig](images/spectra/wpconfig.png) </br> </br>
 it looks like the Database connection information, but when trying to connect to the MySQL service, we get an error. </br>
 I saved the credentials, and moved to the first link from earlier: </br>
-![first_link_mainpage](images/spectra/first_link_mainpage.png) </br>
+![first_link_mainpage](images/spectra/first_link_mainpage.png) </br> </br>
 Unfourtanetly, I couldn't find any useful information, except from the 'Administrator' username, that came in use later. </br>
-![administrator_username](images/spectra/administrator_username.png) </br>
+![administrator_username](images/spectra/administrator_username.png) </br> </br>
 Clicking on the Login link, I got redirected to WordPress login page: </br>
-![wordpress_login](images/spectra/wordpress_login.png) </br>
+![wordpress_login](images/spectra/wordpress_login.png) </br> </br>
 I tried using the database information I found before, but it didn't work. </br>
 I then tried using the ```Administrator``` as the username, and ```devteam01``` as the password, and it worked: </br>
-![admin_dashboard](images/spectra/admin_dashboard.png) </br>
+![admin_dashboard](images/spectra/admin_dashboard.png) </br> </br>
 To upload a webshell, I clicked on the Plugins tab, and then the Plugin Editor: </br>
-![plugin_editor](images/spectra/plugin_editor.png) </br>
+![plugin_editor](images/spectra/plugin_editor.png) </br> </br>
 The plugin is located at: http://spectra.htb/main/wp-content/plugins/akismet/akismet.php </br>
 I edited it, and uploaded a one liner reverse shell: </br>
 ```bash

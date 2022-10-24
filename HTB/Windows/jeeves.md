@@ -27,7 +27,7 @@ Gobuster v1.4.1              OJ Reeves (@TheColonial)
 </br>
 
 Browsing to the ```askjeeves``` directory, I saw this page: </br>
-![askjenkins_mainpage](images/jeeves/askjenkins_mainpage.png) </br>
+![askjenkins_mainpage](images/jeeves/askjenkins_mainpage.png) </br> </br>
 Browsing through the system, I found a way to execute arbitrary code on the webserver: </br>
 I went to the ```manage jenkins``` tab, and saw this: </br>
 ![manage_jenkins](images/jeeves/manage_jenkins.png) </br>

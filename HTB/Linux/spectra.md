@@ -4,7 +4,7 @@
 First, I navigated to the website and saw a simple page with two links: </br>
 ![mainpage](images/spectra/mainpage.png) </br>
 Both links redirected me to spectra.htb, so I added this to the ```etc/hosts``` file. </br>
-The second link returns: “error establishing a database connection”, but looking at the link without the ```index.php``` we get a directory listing. </br>
+The second link returned: “error establishing a database connection”, but looking at the link without the ```index.php``` I got a directory listing. </br>
 Most of the files there are default and have nothing interesting inside, except of one file: </br>
 ![testing_index](images/spectra/testing_index.png) </br>
 ```wp-config.php``` is the base configuration file for WordPress, where the database username and password will be stored, </br>

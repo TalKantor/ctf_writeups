@@ -92,7 +92,7 @@ Inside I found the SSH Private key: </br>
 I used the keys using this commands: </br>
 ```chmod 600 id_rsa``` to give the file full read and write access </br>
 ```ssh -i id_rsa administrator@10.10.10.236``` </br> </br>
-**Vulnerability Exploited:** Sensitive Data Exposure And Default Credentials Vulnerability </br>
+**Vulnerability Exploited:** Sensitive Data Exposure And Default Credentials Vulnerability </br> </br>
 **Vulnerability Explanation:** </br>
 **Sensitive Data Exposure:** Sensitive data is any information that is meant to be protected from unauthorized access. </br>
 Sensitive data can include anything from personally identifiable information, to banking information, to login credentials. </br>

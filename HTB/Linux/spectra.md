@@ -17,7 +17,7 @@ I saved the credentials, and moved to the first link from earlier: </br>
 Unfourtanetly, I couldn't find any useful information, except from the 'Administrator' username, that came in use later. </br>
 ![administrator_username](images/spectra/administrator_username.png) </br>
 Clicking on the Login link, I got redirected to WordPress login page: </br>
-[wordpress_login](images/spectra/wordpress_login.png) </br>
+![wordpress_login](images/spectra/wordpress_login.png) </br>
 I tried using the database information I found before, but it didn't work. </br>
 I then tried using the ```Administrator``` as the username, and ```devteam01``` as the password, and it worked: </br>
 ![admin_dashboard](images/spectra/admin_dashboard.png) </br>

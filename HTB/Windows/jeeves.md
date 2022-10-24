@@ -37,11 +37,11 @@ Opened a netcat listener on another terminal, and it worked. </br> </br>
 ![initial_shell](images/jeeves/initial_shell.png) </br> </br>
 # Privilege Escalation: 
 
-I solved it in two ways, one way is by exploiting ```Juicy Potato``` and the second way is enumerating and
+I solved it in two ways, one way is by exploiting ```Juicy Potato``` and the second way is enumerating and </br>
 finding ```kohsuke``` user credentials in the keypass password manager. </br>
 I will show the second way since I believe that was the intentional way to solve this machine. </br>
-After getting an initial shell , I did a bit of enumeration on ```kohsuke``` user directories (The user I got
-access to). I found this file in the Documents directory: </br>
+After getting an initial shell , I did a bit of enumeration on ```kohsuke``` user directories </br> 
+(The user I got access to), and I found this file in the Documents directory: </br>
 ![ceh_file](images/jeeves/ceh_file.png) </br>
 A ```KDBX``` file is a password manager for Windows. It stores an encrypted database of passwords that can be
 viewed only using a master password set by the user. </br>

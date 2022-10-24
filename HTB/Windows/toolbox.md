@@ -73,12 +73,13 @@ and on another shell I listened to port 9001 with the command: ```nc -nlvp 9001`
 Earlier, I tried getting inside the FTP service, and saw this: </br>
 ![ftp_login](images/toolbox/ftp_login.png) </br>
 I tried to download the docker-toolbox to my windows machine, and figured that it installs VirtualBox, and creates a VM running the boot2docker Linux distribution. </br>
-I ran a nmap scan, using nmap static binary, Before running the scan, I checked for my ip with ifconfig, and ran the scan with nmap 172.17.0.1/24 </br>
+I ran a nmap scan, using nmap static binary, Before running the scan, I checked for my ip with ifconfig, and ran the scan with: </br>
+```nmap 172.17.0.1/24``` </br>
 Nmap Scan results: </br>
 ![nmap_scan](images/toolbox/nmap_scan.png) </br>
 The First IP was the Virtual machine IP address, and since it had ssh open, I tried connecting to docker through it. </br>
-I searched online for boot2docker default credentials, and found this: </br>
-![docker_default_creds](images/toolbox/docker_default_creds.png) </br>
+I searched online for boot2docker default credentials, and found this: </br> </br>
+![docker_default_creds](images/toolbox/docker_default_creds.png) </br> </br>
 I got in: </br>
 ![ssh_shell](images/toolbox/ssh_shell.png) </br>
 I tried looking for the root flag with: ```find / -name root.txt 2>/dev/null``` </br>
@@ -109,7 +110,8 @@ Classify data processed, stored or transmitted by an application. Identify which
 - Make sure to encrypt all sensitive data at rest. </br>
 - Ensure up-to-date and strong standard algorithms, protocols, and keys are in place; use proper key
 management. </br>
-- Store passwords using strong adaptive and salted hashing functions with a work factor. </br>
+- Store passwords using strong adaptive and salted hashing functions with a work factor. </br> </br>
+
 **Default Credential vulnerability:** Ensuring not to use a known and weak password , and making sure to
 change the original, default passwords. </br>
 

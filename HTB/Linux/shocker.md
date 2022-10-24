@@ -42,6 +42,19 @@ shelly@Shocker:/usr/lib/cgi-bin$
 </br>
 
 # Privilege Escalation: 
-
+After I got initial shell, the first thing I did was ```sudo -l```, And I saw that: </br>
+![perl_sudo](images/shocker/perl_sudo.png) </br>
+I checked in GTFOBins if this binary was there. </br>
+**GTFOBins:** is a curated list of Unix binaries that can be used to bypass local security restrictions in
+misconfigured systems. </br>
+I found it: </br>
+![perl_gtfo_bins](images/shocker/perl_gtfo_bins.png) </br>
+I tried it out, and it worked: ```sudo perl -e 'exec "/bin/sh";'``` </br> </br>
+**Vulnerability Exploited:** perl binary runs as sudo </br>
+**Vulnerability Explanation:** If the binary is allowed to run as superuser by sudo, it does not drop the </br>
+elevated privileges and may be used to access the file system, escalate or maintain privileged access. </br>
+**Vulnerability Fix:** Do not let a low privileged user to run binaries as sudo. </br> </br>
+**Proof Of Screenshot:** </br>
+![privesc_proof](images/shocker/privesc_proof.png)
 
 

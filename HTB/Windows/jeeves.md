@@ -37,6 +37,7 @@ Opened a netcat listener on another terminal, and it worked. </br> </br>
 ![initial_shell](images/jeeves/initial_shell.png) </br> </br>
 # Privilege Escalation: 
 </br>
+
 I solved it in two ways, one way is by exploiting ```Juicy Potato``` and the second way is enumerating and
 finding ```kohsuke``` user credentials in the keypass password manager. </br>
 I will show the second way since I believe that was the intentional way to solve this machine. </br>

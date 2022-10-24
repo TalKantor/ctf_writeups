@@ -110,7 +110,7 @@ Classify data processed, stored or transmitted by an application. Identify which
 - Make sure to encrypt all sensitive data at rest. </br>
 - Ensure up-to-date and strong standard algorithms, protocols, and keys are in place; use proper key
 management. </br>
-- Store passwords using strong adaptive and salted hashing functions with a work factor. </br> </br>
+- Store passwords using strong adaptive and salted hashing functions with a work factor. </br>
 
 **Default Credential vulnerability:** Ensuring not to use a known and weak password , and making sure to
 change the original, default passwords. </br>

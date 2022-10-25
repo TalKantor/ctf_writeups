@@ -66,7 +66,7 @@ an interactive mode, where I was able to execute commands and eventually get roo
 ![nmap_interactive](images/lame/nmap_interactive.png) </br>
 Now to get inside the root user, I made my shell interactive (like I showed previously [here](https://github.com/TalKantor/ctf_writeups/blob/master/HTB/Linux/bank.md)). </br>
 edited the /etc/passwd file - and removed the 'x' in the root section: </br> </br>
-**From:** root:x:0:0:root:/root:/bin/bash **To:** root::0:0:root:/root:/bin/bash </br>
+**From:** ```root:x:0:0:root:/root:/bin/bash``` **To:** ```root::0:0:root:/root:/bin/bash``` </br>
 **Explanation:** The 'x' in this line means that the password is actually stored hashed in the shadow file,
 when I removed it I was able to login to root with an empty password. </br> </br>
 **Vulnerability Exploited**: Suid Binary Bit Set </br>

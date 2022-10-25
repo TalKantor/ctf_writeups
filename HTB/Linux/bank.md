@@ -29,5 +29,28 @@ I renamed the php reverse shell extension to ```.htb``` , and it worked: </br>
 I set up a netcat listener and catched the reverse shell: </br>
 ![initial_shell](images/bank/initial_shell.png) </br> 
 # Privilege Escalation
-
+After I got Initial Access, I enumerated the machine, and found this at ```/var/htb``` directory: </br>
+![htb_directory](images/bank/htb_directory.png) </br>
+The emergency file looked like a python script, and when I read it this is what I saw: </br>
+![emergency_file](images/bank/emergency_file.png) </br>
+I tried executing the file, and it worked: </br>
+![emergency_execute](images/bank/emergency_execute.png) </br>
+I was in the root group and could access /root directory and read the root flag, but I wanted full access, so I did this: </br>
+- openssl passwd -6 -salt xyz test -> Generated a hashed password, I used ‘test’. </br>
+- Made an interactive shell, so I could edit it with vim/nano: </br>
+- python3 -c 'import pty; pty.spawn("/bin/bash")' </br>
+**B.** Ctrl + Z to background my shell, stty raw -echo </br>
+**C.** stty raw -echo;fg </br>
+- nano /etc/shadow -> pasted the new hashed password to root. </br>
+- su root, entered 'test' password, and it worked: </br> </br>
+**Vulnerability Exploited:** Suid Binary Bit Set </br>
+**Vulnerability Explanation:** If the binary has the SUID bit set, it does not drop the elevated privileges
+and may be abused to access the file system, escalate or maintain privileged access as a SUID backdoor.
+If it is used to run sh -p, omit the -p argument on systems like Debian (<= Stretch) that allow the default
+sh shell to run with SUID privileges. </br>
+**Vulnerability Fix:** Remove the unsafe SUID since any low priveleged user has access to it and can
+elevate his privileges. </br> </br>
+**Proof Of Screenshot:** </br>
+![privesc_proof](images/bank/privesc_proof.png) </br>
+ 
 

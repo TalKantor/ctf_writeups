@@ -1,6 +1,6 @@
 # Enumeration
 ![nmap_scan](images/active/nmap_scan.png) </br>
-I enumerated the SMB service with smbmap: ```smbmap -H 10.10.10.100 </br>
+I enumerated the SMB service with smbmap: ```smbmap -H 10.10.10.100``` </br>
 ![smbmap_scan](images/active/smbmap_scan.png) </br>
 The Replication share has READ ONLY permission, so I tried  to login anonymously to view the files inside. </br>
 ```smbclient //10.10.10.100/Replication -N``` </br>

@@ -104,7 +104,7 @@ I created a wordlist from the webpage using cewl: </br>
 When I try to log in with smbmap again I get this: </br>
 ```fabricorp.local\tlavel:Fabricorp01 STATUS_PASSWORD_MUST_CHANGE``` </br>
 
-Change Password: </br>
+**Change Password:** </br>
 It looks like I have valid creds, but the machine is set to require a password change. To make this change, I can use smbpasswd from Kali. I’ll run it with -r [ip], give it the old password, then a new one. </br>
 but it turns out that the password resets to the default with the required change flag every minute, so I’ll need to work fast. </br>
 I couldn't list the shares or enumerate them, so I tried getting into rpcclient: </br>

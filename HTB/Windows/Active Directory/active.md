@@ -84,7 +84,9 @@ has to try and crack a ticket.
 - Enable audit logging on the domain controller to log successful Kerberos Ticket-Granting Service
 ticket requests, in particular those that are being requested with weak RC4 or DES encryption,
 and configure a security information and event monitoring (SIEM) or log management tool to
-alert on these events. </br> </br>
+alert on these events. </br>
+
+
 **Proof Of Screenshot:** </br>
  ![privesc_shell](images/active/privesc_shell.png) </br>
 

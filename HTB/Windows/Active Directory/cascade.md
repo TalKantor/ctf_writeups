@@ -166,7 +166,7 @@ The interesting files I found: </br>
 **Meeting_Notes_June_2018.html:** </br>
 "We will be using a temporary account to perform all tasks related to the network migration and this account will be deleted at the end of 2018 once the migration is complete. This will allow us to identify actions related to the migration in security logs etc. Username is TempAdmin (password is the same as the normal admin account password)." </br> </br>
 The line ```"Password"=hex:6b,cf,2a,4b,6e,5a,ca,0f``` looked very interesting. </br>
-First I tried to decrypt it with hex but it didn’t seem to work, I then found out that ``TightVNC``` stores the password in the register encrypted with a static key. </br>
+First I tried to decrypt it with hex but it didn’t seem to work, I then found out that ```TightVNC``` stores the password in the register encrypted with a static key. </br>
 I found a way to decrypt it using [GitHub](https://github.com/frizb/PasswordDecrypts) </br>
 I used this command: ```echo '6bcf2a4b6e5aca0f' | xxd -r -p > vnc_enc_pass``` </br>
 Decrypted password: sT333ve2 </br> </br>

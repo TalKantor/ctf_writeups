@@ -89,7 +89,7 @@ Tried going deeper with this command: </br>
 ```ldapsearch -H ldap://10.10.10.193 -x -b "DC=fabricorp,DC=local"``` </br>
 Nothing new. </br>
 
-Spray for Password using crackmapexec: </br>
+**Spray for Password using crackmapexec:** </br>
 I had a handful of user names from the these printer logs. The logs are also potentially a good source of target specific words that might be used as a password: </br>
 I created a wordlist from the webpage using cewl: </br>
 ```cewl http://fuse.fabricorp.local/papercut/logs/html/index.htm --with-numbers > wordlist``` </br>

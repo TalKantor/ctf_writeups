@@ -152,3 +152,4 @@ I connected via SSH, and it worked:
 
 !(images/bastion/Pasted_Image_20230104223144.png)
 
+testing

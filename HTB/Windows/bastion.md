@@ -77,7 +77,7 @@ smbclient \\\\10.10.10.134\\Backups\
 ```
 At first I was trying to recursively download all of the files there, but it was very slow and didn't seem to work, and then I stumbled upon the ```note.txt``` file and read it:
 
-![[Pasted_image_20230104205316.png]]
+![[images/bastion/Pasted_Image_20230104205316.png]]
 
 So I decided to mount the SMB share on my kali File System using this command:
 ```
@@ -87,7 +87,7 @@ I searched for anything interesting there, and I found two .vhd files,
 .vhd (virtual hard disk) file is: a disk image file format for storing the entire contents of a computer's hard drive. 
 The disk image, sometimes called a virtual machine (VM), replicates an existing hard drive, including all data and structural elements.
 
-![[Pasted_image_20230104210016.png]]
+![[images/bastion/Pasted_Image_20230104210016.png]]
 
 To list the files I used this command:
 ```
@@ -98,7 +98,7 @@ And I could see that the first file contained only BOOT files, and the second on
 guestmount --add *filename* --inspector --ro -v /mnt/vhd
 ```
 
-![[Pasted_image_20230104210329.png]]
+![[images/bastion/Pasted_Image_20230104210329.png]]
 After a while of enumeration, I couldn't find any flags or other files that could be useful so I decided to copy the SAM and SYTEM files and dump them later on.
 to do that I did this:
 ```
@@ -138,7 +138,7 @@ mRemoteNG (mremote) is an open source project (https://github.com/rmcardle/mRemo
 
 The password can be found at ```%appdata%/mRemoteNG``` in a file named confCons.xml. This password can sometimes be the administrator password
 
-![[Pasted_image_20230104222607.png]]
+![[images/bastion/Pasted_Image_20230104222607.png]]
 
 When I read the file I found this:
 ```                                                                                                                                           
@@ -146,9 +146,9 @@ When I read the file I found this:
 me="Administrator" Domain="" Password="aEWNFV5uGcjUHF0uS17QTdT9kVqtKCPeoC0Nw5dmaPFjNQ2kt/zO5xDqE4HdVmHAowVRdC7emf7lWWA10dQKiw=="                                                             
 ```
 It looks like the Administrator password, to decrypt it I used a tool called [mRemoteNG-Decrypt](https://github.com/haseebT/mRemoteNG-Decrypt)
-![[Pasted_image_20230104223021.png]]
+![[images/bastion/Pasted_Image_20230104223021.png]]
 
 I connected via SSH, and it worked:
 
-![[Pasted_image_20230104223144.png]]
+![[images/bastion/Pasted_Image_20230104223144.png]]
 

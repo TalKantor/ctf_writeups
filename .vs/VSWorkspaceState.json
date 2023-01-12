@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HTB",
+    "\\HTB\\Windows",
+    "\\HTB\\Windows\\images",
+    "\\HTB\\Windows\\images\\bastion"
   ],
+  "SelectedNode": "\\HTB\\Windows\\images\\bastion",
   "PreviewInSolutionExplorer": false
 }

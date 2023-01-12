@@ -295,5 +295,5 @@ I tried to connect to the tmux session with this command:
 tmux -S /.devs/dev_sess 
 ```
 
-And it worked, I got **root** privileges:
+And it worked, I got **root** privileges: </br>
 ![root_shell](images/valentine/root_shell.png)

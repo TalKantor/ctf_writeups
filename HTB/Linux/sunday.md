@@ -199,7 +199,6 @@ I got inside ```sunny``` user with SSH:
 ```
 ssh sunny@10.10.10.76 -p 22022
 ```
-</br>
 
 ![sunny_shell](images/sunday/sunny_shell.png)
 

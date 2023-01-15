@@ -335,13 +335,20 @@ $5$Ebkn8jlK$i6SSPa0.u7Gd.0oJOT4T421N2OvsfXqAT1vCoYUOigB:cooldude!
 
 **Note:** I use Hashcat on my Host Windows machine becuase hashcat uses the GPU unlike in virtual machines where he uses the CPU. it works much faster.
 
+```
+sammy@sunday:/home/sammy$ whoami
+sammy
+sammy@sunday:/home/sammy$ id
+uid=100(sammy) gid=10(staff)
+```
+
 # Shell as root:
 
 First thing I did was ```sudo -l``` and that was the output:
 ```
-sunny@sunday:/backup$ sudo -l
-User sunny may run the following commands on sunday:
-    (root) NOPASSWD: /root/troll
+User sammy may run the following commands on sunday:
+    (ALL) ALL
+    (root) NOPASSWD: /usr/bin/wget
 ```
 
 I used [GTFOBins](https://gtfobins.github.io/) to privilege Escalation </br>

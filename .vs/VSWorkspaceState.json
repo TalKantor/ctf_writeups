@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\HTB",
-    "\\HTB\\Windows",
-    "\\HTB\\Windows\\images",
-    "\\HTB\\Windows\\images\\bastion"
+    "\\HTB\\Linux",
+    "\\HTB\\Linux\\images"
   ],
-  "SelectedNode": "\\HTB\\Windows\\images\\bastion",
+  "SelectedNode": "\\HTB\\Linux\\valentine.md",
   "PreviewInSolutionExplorer": false
 }

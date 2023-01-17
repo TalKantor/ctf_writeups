@@ -60,7 +60,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Sun Jan 15 22:17:49 2023 -- 1 IP address (1 host up) scanned in 304.95 seconds
 ```
 
-#### ### DNS:
+#### DNS:
 ```
 dig  @10.10.10.161 htb.local
 ; <<>> DiG 9.18.0-2-Debian <<>> @10.10.10.161 htb.local
